@@ -24,6 +24,35 @@ body {
   margin-bottom: 15px;
 }
 
+.form-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.remember-me input {
+  width: auto;
+  margin: 0;
+}
+
+.forgot-link {
+  font-size: 0.9rem;
+  color: #ff4d4d;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
 label {
   display: block;
   font-weight: 600;

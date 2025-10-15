@@ -10,32 +10,130 @@
   <header class="navbar">
     <div class="logo">DiuGym Center</div>
     <nav>
-      <a href="index.html" class="active">Home</a>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#classes">Classes</a>
+      <a href="#trainers">Trainers</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
       <a href="login.html">Login</a>
       <a href="register.html">Register</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Welcome to DiuGym Fitness Center</h1>
-    <p>Your journey to fitness starts here. Train smart, stay strong.</p>
-    <a href="login.html" class="btn">Get Started</a>
-  </section>
+  <main>
+    <section id="home" class="hero">
+      <h1>Build Your Best Self</h1>
+      <p>Simple plans, expert guidance, and a supportive community to keep you moving.</p>
+      <a href="login.html" class="btn">Start Training</a>
+    </section>
 
-  <section class="features">
-    <div class="feature">
-      <h2>Modern Equipment</h2>
-      <p>State-of the art machines for all workout types.</p>
-    </div>
-    <div class="feature">
-      <h2>Expert Trainers</h2>
-      <p>Get trained by certified and experienced professionals.</p>
-    </div>
-    <div class="feature">
-      <h2>Flexible Plans</h2>
-      <p>Choose from a variety of membership plans that fit your schedule.</p>
-    </div>
-  </section>
+    <section id="about" class="section about">
+      <div class="section-content">
+        <h2>About DiuGym</h2>
+        <p>We believe fitness should feel friendly and achievable. Our center combines a welcoming environment with professional support so you can train confidently, no matter your starting point.</p>
+      </div>
+    </section>
+
+    <section id="classes" class="section">
+      <div class="section-content">
+        <h2>Classes</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Strength & Conditioning</h3>
+            <p>Small group sessions that focus on building strength with proper form and pacing.</p>
+          </article>
+          <article class="card">
+            <h3>Functional HIIT</h3>
+            <p>High-energy intervals that mix cardio and bodyweight training for all fitness levels.</p>
+          </article>
+          <article class="card">
+            <h3>Mindful Mobility</h3>
+            <p>Gentle stretching and core stability sessions to keep you flexible and energized.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="trainers" class="section alt">
+      <div class="section-content">
+        <h2>Meet the Trainers</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Nehal S.</h3>
+            <p>Certified strength coach dedicated to building sustainable training routines.</p>
+          </article>
+          <article class="card">
+            <h3>Sadia K.</h3>
+            <p>Nutrition-focused trainer who pairs smart fueling with functional workouts.</p>
+          </article>
+          <article class="card">
+            <h3>Ayan A.</h3>
+            <p>Group fitness specialist known for upbeat sessions that keep members motivated.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="section-content">
+        <h2>Pricing</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Starter</h3>
+            <p>Access to gym floor, two classes per week, and a monthly check-in.</p>
+            <p class="price">$29 / month</p>
+          </article>
+          <article class="card">
+            <h3>Plus</h3>
+            <p>Unlimited classes, personalized plan updates, and wellness resources.</p>
+            <p class="price">$49 / month</p>
+          </article>
+          <article class="card">
+            <h3>Premium</h3>
+            <p>Includes one-on-one coaching sessions and full access to all amenities.</p>
+            <p class="price">$79 / month</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section alt">
+      <div class="section-content">
+        <h2>Testimonials</h2>
+        <div class="quotes">
+          <blockquote>
+            <p>“The trainers make every workout approachable. I feel stronger every week.”</p>
+            <cite>— Rina M.</cite>
+          </blockquote>
+          <blockquote>
+            <p>“I finally found a gym that keeps me consistent without feeling overwhelmed.”</p>
+            <cite>— Tanvir A.</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-content contact">
+        <h2>Contact</h2>
+        <p>Email <a href="mailto:hello@diugym.com">hello@diugym.com</a> or call <a href="tel:+880123456789">+880 1234 56789</a>. We are open daily from 7 AM to 10 PM.</p>
+        <form class="contact-form">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" />
+
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" />
+
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="How can we help?"></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>© 2025 DiuGym Center | All Rights Reserved</p>

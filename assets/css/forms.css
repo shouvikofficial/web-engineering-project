@@ -1,86 +1,95 @@
+/* Form page styling */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #f4f4f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
+/* Form container */
 .form-container {
-  background: #fff;
-  padding: 30px;
-  width: 350px;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    background-color: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
 .form-container h2 {
-  text-align: center;
-  color: #ff4d4d;
+    text-align: center;
+    color: #ff4d4d;
 }
 
+/* Form groups */
 .form-group {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .form-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
+/* Remember me checkbox */
 .remember-me {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
 }
 
 .remember-me input {
-  width: auto;
-  margin: 0;
+    width: auto;
+    margin: 0;
 }
 
+/* Forgot password link */
 .forgot-link {
-  font-size: 0.9rem;
-  color: #ff4d4d;
-  text-decoration: none;
+    font-size: 0.9rem;
+    color: #ff4d4d;
+    text-decoration: none;
 }
 
 .forgot-link:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
+/* Labels and inputs */
 label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 5px;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
+/* Submit button */
 .btn {
-  width: 100%;
-  padding: 10px;
-  background: #ff4d4d;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .btn:hover {
-  background: #ff3333;
+    background-color: #ff3333;
 }
 
+/* Extra links at bottom */
 .extra {
-  text-align: center;
-  margin-top: 10px;
+    text-align: center;
+    margin-top: 10px;
 }

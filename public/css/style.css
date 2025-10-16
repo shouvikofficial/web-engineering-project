@@ -41,6 +41,11 @@ body {
   align-items: center;
 }
 
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
 .nav-menu a {
   color: #fff;
   margin: 0 15px;
@@ -61,6 +66,10 @@ body {
 
 .menu-toggle {
   display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 /* ====== HERO SECTION ====== */
@@ -211,7 +220,7 @@ body {
   color: #fff;
 }
 
-/* ====== ABOUT SECTION ENHANCED ====== */
+/* ====== ABOUT SECTION ====== */
 .about {
   background: #1a1a1a;
   padding: 100px 0;
@@ -277,30 +286,6 @@ body {
 
 .about-image img:hover {
   transform: scale(1.05);
-}
-
-/* ====== RESPONSIVE ABOUT SECTION ====== */
-@media (max-width: 992px) {
-  .about-container {
-    flex-direction: column-reverse;
-    gap: 30px;
-    text-align: center;
-  }
-  .about-text h2 {
-    font-size: 2.2rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .about-text h2 {
-    font-size: 2rem;
-  }
-  .about-text p {
-    font-size: 1rem;
-  }
-  .about-text .btn {
-    padding: 10px 20px;
-  }
 }
 
 /* ====== FOOTER ====== */
@@ -401,7 +386,6 @@ body {
   color: #888;
 }
 
-
 /* ===== LOGIN & REGISTER HERO ===== */
 .login-hero {
   position: relative;
@@ -488,4 +472,74 @@ body {
 .login-card p a {
   color: #f97316;
   text-decoration: none;
+}
+
+/* ====== RESPONSIVE ====== */
+/* Tablet */
+@media (max-width: 992px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .nav-menu a {
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .about-container {
+    flex-direction: column-reverse;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .about-text h2 {
+    font-size: 2rem;
+  }
+  .about-text p {
+    font-size: 1rem;
+  }
+  .about-text .btn {
+    padding: 10px 20px;
+  }
+  .plan-card h3 {
+    font-size: 1.3rem;
+  }
+  .plan-card p {
+    font-size: 0.9rem;
+  }
+  .plan-card h4 {
+    font-size: 1rem;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
@@ -15,6 +15,8 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+
 
 /* Header section */
 .header {
@@ -55,6 +57,8 @@ html {
     border-radius: 2px;
 }
 
+
+
 /* Navigation menu */
 .nav {
     display: flex;
@@ -74,6 +78,7 @@ html {
     background-color: #444;
 }
 
+
 /* Login button style */
 .btn-login {
     border: 2px solid #ff6b6b !important;
@@ -84,6 +89,7 @@ html {
     background-color: #ff6b6b !important;
 }
 
+
 /* Signup button */
 .btn-signup {
     background-color: #ff6b6b !important;
@@ -93,6 +99,7 @@ html {
 .btn-signup:hover {
     background-color: #ff5252 !important;
 }
+
 
 /* Main sections */
 .section {
@@ -111,23 +118,86 @@ html {
     background-color: white;
 }
 
+
 /* Hero banner */
 .hero {
-    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../image/gym-front.jpg');
+    background-size: cover;
+    background-position: center;
     color: white;
     text-align: center;
-    padding: 100px 20px;
+    padding: 100px 20px 60px;
+    position: relative;
 }
 
-.hero h1 {
-    font-size: 48px;
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.feature-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
 
 /* Card grid layout */
 .cards {
@@ -148,6 +218,7 @@ html {
     margin-bottom: 15px;
 }
 
+
 /* Pricing */
 .price {
     font-size: 24px;
@@ -155,6 +226,7 @@ html {
     color: #ff6b6b;
     margin-top: 15px;
 }
+
 
 /* Testimonials quotes */
 .quotes {
@@ -177,6 +249,7 @@ blockquote cite {
     color: #666;
     font-style: normal;
 }
+
 
 /* Contact section */
 .contact a {
@@ -208,22 +281,39 @@ blockquote cite {
     width: 100%;
 }
 
+
 /* Button styles */
 .btn {
-    display: inline-block;
-    background-color: white;
-    color: #ff6b6b;
-    padding: 12px 30px;
+    padding: 12px 25px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1rem;
     border: none;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
-.btn:hover {
-    background-color: #f0f0f0;
+.btn-primary {
+    background-color: #ff6b6b;
+    color: white;
 }
+
+.btn-primary:hover {
+    background-color: #ff5252;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #ff6b6b;
+}
+
 
 /* Footer */
 footer {
@@ -232,6 +322,8 @@ footer {
     text-align: center;
     padding: 20px;
 }
+
+
 
 /* Mobile responsive */
 @media (max-width: 768px) {
@@ -261,12 +353,30 @@ footer {
         padding: 12px;
     }
     
-    .hero h1 {
-        font-size: 32px;
+    .hero {
+        padding: 80px 20px 40px;
     }
     
-    .hero p {
-        font-size: 16px;
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 250px;
+    }
+    
+    .hero-features {
+        gap: 20px;
     }
     
     .cards {

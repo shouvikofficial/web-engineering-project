@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register | DiuGym Center</title>
   <link rel="stylesheet" href="assets/css/forms.css" />
 </head>
+
 <body>
   <div class="form-container">
     <h2>Create a New Account</h2>
@@ -13,22 +15,32 @@
       <div class="form-group">
         <label for="fullname">Full Name</label>
         <input type="text" id="fullname" name="fullname" placeholder="Enter full name" required />
+        <span id="efullname" style="font-size: 0.8rem;"></span>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Enter email" required />
+        <span id="eemail" style="font-size: 0.8rem;"></span>
       </div>
       <div class="form-group">
         <label for="phone">Phone Number</label>
         <input type="text" id="phone" name="phone" placeholder="Enter phone number" required />
+        <span id="ephone" style="font-size: 0.8rem;"></span>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Enter password" required />
+        <div id="password-requirements" style="font-size: 0.8rem; margin-top: 5px;">
+          <span id="ec"></span>
+          <span id="el"></span>
+          <span id="ed"></span>
+          <span id="es"></span>
+        </div>
       </div>
       <div class="form-group">
         <label for="confirm">Confirm Password</label>
         <input type="password" id="confirm" name="confirm" placeholder="Confirm password" required />
+        <span id="econfirm" style="font-size: 0.8rem;"></span>
       </div>
       <button type="submit" name="register" class="btn">Register</button>
       <p class="extra">Already have an account? <a href="login.html">Login here</a></p>
@@ -36,15 +48,144 @@
   </div>
 
   <script>
+    // Validation function for form submission
     function validateRegister() {
+      let isValid = true;
+
+      // Check Full Name
+      const fullname = document.getElementById("fullname").value;
+      let nameFlag = 0;
+      for (let i = 0; i < fullname.length; i++) {
+        if ((fullname[i] >= 'A' && fullname[i] <= 'Z') ||
+          (fullname[i] >= 'a' && fullname[i] <= 'z') ||
+          fullname[i] == ' ') {
+          continue;
+        } else {
+          nameFlag = 1;
+          break;
+        }
+      }
+
+      if (nameFlag == 1) {
+        document.getElementById("efullname").innerHTML = "❌ Name can only contain letters and spaces";
+        document.getElementById("efullname").style.color = "red";
+        isValid = false;
+      }
+
+      // Check Password Requirements
       const pass = document.getElementById("password").value;
+      let c = 0, l = 0, d = 0, s = 0;
+      for (let i = 0; i < pass.length; i++) {
+        if (pass[i] >= 'A' && pass[i] <= 'Z') { c = 1; }
+        else if (pass[i] >= 'a' && pass[i] <= 'z') { l = 1; }
+        else if (pass[i] >= '0' && pass[i] <= '9') { d = 1; }
+        else { s = 1; }
+      }
+
+      if (c == 0 || l == 0 || d == 0 || s == 0) {
+        isValid = false;
+        alert("Please fulfill all password requirements!");
+      }
+
+      // Check Confirm Password
       const confirm = document.getElementById("confirm").value;
       if (pass !== confirm) {
-        alert("Passwords do not match!");
-        return false;
+        document.getElementById("econfirm").innerHTML = "❌ Passwords do not match!";
+        document.getElementById("econfirm").style.color = "red";
+        isValid = false;
       }
-      return true;
+
+      return isValid;
     }
+
+    // Live validation for Full Name
+    document.getElementById("fullname").addEventListener("input", () => {
+      let x = document.getElementById("fullname").value;
+      let flag = 0;
+
+      for (let i = 0; i < x.length; i++) {
+        if ((x[i] >= 'A' && x[i] <= 'Z') || (x[i] >= 'a' && x[i] <= 'z') || x[i] == ' ') {
+          continue;
+        } else {
+          flag = 1;
+          break;
+        }
+      }
+
+      if (flag == 1) {
+        document.getElementById("efullname").innerHTML = "<br>❌ You can't use special characters or numbers";
+        document.getElementById("efullname").style.color = "red";
+      } else {
+        document.getElementById("efullname").innerHTML = "";
+      }
+    });
+
+    // Live validation for Password (Multiple conditions)
+    document.getElementById("password").addEventListener("input", () => {
+      let x = document.getElementById("password").value;
+      let c = 0, l = 0, d = 0, s = 0;
+
+      for (let i = 0; i < x.length; i++) {
+        if (x[i] >= 'A' && x[i] <= 'Z') {
+          c = 1;
+        } else if (x[i] >= 'a' && x[i] <= 'z') {
+          l = 1;
+        } else if (x[i] >= '0' && x[i] <= '9') {
+          d = 1;
+        } else if (x[i] == " ") {
+          continue;
+        } else {
+          s = 1;
+        }
+      }
+
+      if (c == 0) {
+        document.getElementById("ec").innerHTML = "<br>❌ One capital letter required";
+        document.getElementById("ec").style.color = "red";
+      } else {
+        document.getElementById("ec").innerHTML = "<br>✅ Capital letter";
+        document.getElementById("ec").style.color = "green";
+      }
+
+      if (l == 0) {
+        document.getElementById("el").innerHTML = "<br>❌ One lowercase letter required";
+        document.getElementById("el").style.color = "red";
+      } else {
+        document.getElementById("el").innerHTML = "<br>✅ Lowercase letter";
+        document.getElementById("el").style.color = "green";
+      }
+
+      if (d == 0) {
+        document.getElementById("ed").innerHTML = "<br>❌ One digit required";
+        document.getElementById("ed").style.color = "red";
+      } else {
+        document.getElementById("ed").innerHTML = "<br>✅ Digit";
+        document.getElementById("ed").style.color = "green";
+      }
+
+      if (s == 0) {
+        document.getElementById("es").innerHTML = "<br>❌ One special character required";
+        document.getElementById("es").style.color = "red";
+      } else {
+        document.getElementById("es").innerHTML = "<br>✅ Special character";
+        document.getElementById("es").style.color = "green";
+      }
+    });
+
+    // Live validation for Confirm Password
+    document.getElementById("confirm").addEventListener("input", () => {
+      const pass = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+
+      if (pass !== confirm) {
+        document.getElementById("econfirm").innerHTML = "<br>❌ Passwords do not match";
+        document.getElementById("econfirm").style.color = "red";
+      } else {
+        document.getElementById("econfirm").innerHTML = "<br>✅ Passwords match";
+        document.getElementById("econfirm").style.color = "green";
+      }
+    });
   </script>
 </body>
+
 </html>

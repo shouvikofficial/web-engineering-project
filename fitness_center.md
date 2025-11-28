@@ -1,5 +1,4 @@
-
-# 🧠 AI Agent Rules File - Fitness Center Management System
+# Fitness Center Management System
 
 **Project Name:** Fitness Center Management System  
 **Frontend:** HTML, CSS, JavaScript  

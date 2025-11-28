@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 	<div class="form-container">
 		<h2>Sign in to Your Account</h2>
@@ -29,8 +31,16 @@
 				<a href="#" class="forgot-link">Forgot password?</a>
 			</div>
 			<button type="submit" name="login" class="btn btn-primary full-width">Login</button>
+			<?php
+			if (isset($_GET['error']) && $_GET['error'] == 'invalid') {
+				?>
+				<p style="color: red; margin-top: 10px; text-align:center;">Invalid email or password!</p>
+				<?php
+			}
+			?>
 		</form>
 		<p class="extra">Don't have an account? <a href="register.php">Register</a></p>
 	</div>
 </body>
+
 </html>

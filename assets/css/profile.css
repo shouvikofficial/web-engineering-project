@@ -1,0 +1,60 @@
+/* PROFILE PAGE DESIGN (Matches your theme) */
+
+.profile-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light);
+  padding: 40px 20px;
+}
+
+.profile-card {
+  background: var(--white);
+  width: 420px;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  margin-bottom: 20px;
+}
+
+.profile-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.profile-info {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.profile-info p {
+  background: var(--light);
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.danger-btn {
+  color: red;
+  border-color: red;
+}
+
+.danger-btn:hover {
+  background: red;
+  color: white;
+}

@@ -1,8 +1,3 @@
-<?php
-session_start();
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,59 +12,7 @@ session_start();
 </head>
 
 <body>
-  <header class="header" id="header">
-    <div class="container">
-      <div class="header-wrapper">
-        <a href="#home" class="logo">
-          <span class="logo-icon">⚡</span>
-          <span class="logo-text">DiuGym</span>
-        </a>
-        <nav class="nav" id="nav">
-          <ul class="nav-list">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#classes" class="nav-link">Classes</a></li>
-            <li><a href="#trainers" class="nav-link">Trainers</a></li>
-            <li><a href="#pricing" class="nav-link">Pricing</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-          </ul>
-          <div class="nav-actions">
-            <?php
-            if (isset($_SESSION['user_id'])) {
-              ?>
-
-              <div class="profile-menu">
-                <img src="assets/image/profile.jpg" class="profile-icon" onclick="toggleMenu()">
-
-                <div id="profileDropdown" class="dropdown-menu">
-                  <div class="profile-name"><?php echo $_SESSION['fullname']; ?></div>
-                  <div class="dropdown-divider"></div>
-                  <a href="profile.php">My Profile</a>
-                  <a href="settings.php">Settings</a>
-                  <a href="backend/logout.php" class="logout">Logout</a>
-                </div>
-              </div>
-
-              <?php
-            } else {
-              ?>
-              <a href="login.php" class="btn btn-outline">Login</a>
-              <a href="register.php" class="btn btn-primary">Join Now</a>
-
-              <?php
-            }
-            ?>
-          </div>
-
-        </nav>
-        <button class="menu-toggle" id="menuToggle">
-          <span class="menu-toggle-bar"></span>
-          <span class="menu-toggle-bar"></span>
-          <span class="menu-toggle-bar"></span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <?php include "includes/header.php"; ?>
 
   <main>
     <section id="home" class="hero">
@@ -326,43 +269,7 @@ session_start();
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="logo">⚡ DiuGym</div>
-        <p>Empowering you to live a healthier, stronger life through professional fitness coaching.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#classes">Classes</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Support</h4>
-        <ul>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
-      </div>
-      <div class="footer-newsletter">
-        <h4>Stay Updated</h4>
-        <p>Subscribe for fitness tips and offers.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email">
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-      </div>
-    </div>
-    <div class="footer-bottom container">
-      <p>© 2025 DiuGym Center | All Rights Reserved</p>
-    </div>
-  </footer>
+  <?php include "includes/footer.php"; ?>
 
   <script src="assets/js/script.js"></script>
 </body>

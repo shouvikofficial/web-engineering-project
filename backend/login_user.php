@@ -16,6 +16,8 @@ if(isset($_POST['login'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['fullname'] = $user['fullname'];
             $_SESSION['email'] = $user['email'];
+            $_SESSION['phone'] = $user['phone'];
+
             
             header("Location: ../index.php");
             exit();

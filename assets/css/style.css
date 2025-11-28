@@ -185,3 +185,164 @@ footer {
     padding: 60px 15px;
   }
 }
+
+/* from here onward changes is made by Akib. 
+classes*/
+
+/* Make sure global stuff doesn't interfere too much */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Only target this specific section */
+#classes {
+  padding: 80px 20px;
+  background: #222; /* Dark */
+  position: relative;
+  z-index: 1; /* Sits nicely above backgrounds behind it */
+  margin: 60px 0; /* Space from previous & next sections */
+}
+
+#classes .section-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Reset any weird inherited margins from global styles */
+#classes h2,
+#classes h3,
+#classes p {
+  margin-top: 0;
+}
+
+/* Section title */
+#classes h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+#classes h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 10px;
+  background: #ff6b6b; /* Primary accent */
+  border-radius: 999px;
+}
+
+/* Cards container */
+#classes .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* Individual card */
+#classes .card {
+  background: #2b2b2b;
+  border-radius: 18px;
+  padding: 24px 22px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+/* Accent glow */
+#classes .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 107, 107, 0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* Small “Class” pill */
+#classes .card::after {
+  content: "Class";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f5f5;
+}
+
+#classes .card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+#classes .card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d3d3d3;
+}
+
+/* Hover */
+#classes .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 107, 107, 0.5);
+  background: #252525;
+}
+
+#classes .card:hover::before {
+  opacity: 1;
+}
+
+/* Dot before heading */
+#classes .card h3::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: #ff6b6b;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #classes .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #classes {
+    padding: 60px 16px;
+    margin: 40px 0; /* slightly less margin on small screens */
+  }
+
+  #classes .cards {
+    grid-template-columns: 1fr;
+  }
+
+  #classes .card {
+    padding: 20px 18px;
+  }
+}
+
+/* from here onward changes is made by Akib. 
+Meet the trainer*/
+

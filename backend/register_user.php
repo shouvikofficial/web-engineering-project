@@ -18,7 +18,7 @@ if (isset($_POST['register'])) {
         $sql = "INSERT INTO users(fullname, email, phone, password) VALUES('$fullname', '$email', '$phone', '$hashed')";
 
         if (mysqli_query($con, $sql)) {
-            header("Location: ../login.html");
+            header("Location: ../login.php");
             exit();
         } else {
             header("Location: ../register.php");

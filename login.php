@@ -30,7 +30,7 @@
 			</div>
 			<button type="submit" name="login" class="btn btn-primary full-width">Login</button>
 		</form>
-		<p class="extra">Don't have an account? <a href="register.html">Register</a></p>
+		<p class="extra">Don't have an account? <a href="register.php">Register</a></p>
 	</div>
 </body>
 </html>

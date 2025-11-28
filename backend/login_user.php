@@ -17,14 +17,19 @@ if(isset($_POST['login'])) {
             $_SESSION['fullname'] = $user['fullname'];
             $_SESSION['email'] = $user['email'];
             
-            echo "<script>alert('Login successful!'); window.location.href='../index.html';</script>";
+            header("Location: ../index.php");
+            exit();
+
         } else {
-            echo "<script>alert('Invalid email or password!'); window.location.href='../login.html';</script>";
+            header("Location: ../login.php?error=invalid");
+            exit();
         }
     } else {
-        echo "<script>alert('Invalid email or password!'); window.location.href='../login.html';</script>";
+        header("Location: ../login.php?error=invalid");
+        exit();
     }
 } else {
-    header("location: ../login.html");
+    header("location: ../login.php");
+    exit();
 }
 ?>

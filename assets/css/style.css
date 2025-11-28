@@ -1138,11 +1138,13 @@ profile Page*/
 }
 
 
-.dropdown-menu .profile-name {
-  font-weight: 600;
-  padding: 10px 18px;
-  color: var(--primary);
+.dropdown-username {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    color: var(--primary);
 }
+
 
 
 .dropdown-divider {
@@ -1177,147 +1179,306 @@ profile Page*/
 
 /* profile page */
 
-/* =====================
-   PROFILE PAGE MODERN UI
-====================== */
-
-.profile-wrapper {
-  max-width: 1200px;
-  margin: 40px auto;
-  display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 35px;
-  padding: 20px;
+.profile-page {
+    display: flex;
+    gap: 35px;
+    padding: 50px 20px;
+    max-width: 1250px;
+    margin: 40px auto;
 }
 
-.profile-left {
-  display: flex;
+/* --------------------------------------
+   LEFT SIDEBAR
+---------------------------------------*/
+.profile-sidebar {
+    width: 300px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
-.profile-card-main {
-  width: 100%;
-  background: var(--white);
-  padding: 30px;
-  text-align: center;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    margin-bottom: 15px;
 }
 
-.profile-main-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid var(--accent);
-  object-fit: cover;
-}
-
-.profile-main-name {
-  margin-top: 15px;
-  font-size: 1.7rem;
-  font-weight: 700;
+.profile-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
 }
 
 .profile-role {
-  color: var(--gray);
-  font-size: 0.95rem;
-  margin-bottom: 15px;
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 18px;
 }
 
-.profile-basic-stats {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
+/* -----------------------------
+   CLEAN & BALANCED PROFILE STATS
+   ----------------------------- */
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--light);
+    padding: 14px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin: 20px 0;
 }
 
-.profile-basic-stats div {
-  text-align: center;
+.profile-stats div {
+    text-align: center;
 }
 
-.profile-basic-stats strong {
-  font-size: 1.3rem;
-  color: var(--primary);
+.profile-stats strong {
+    font-size: 1rem;          /* smaller */
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 4px;
 }
 
-.profile-basic-stats span {
-  display: block;
-  color: var(--gray);
-  font-size: 0.85rem;
+.profile-stats span {
+    font-size: 0.78rem;        /* much smaller text */
+    color: var(--gray);
+    display: block;
+    line-height: 1.2;
 }
+
 
 .profile-username {
-  margin: 14px 0 20px;
-  font-size: 0.95rem;
-  color: var(--gray);
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 10px 0 20px;
 }
 
-.full-width {
-  width: 100%;
+/* --------------------------------------
+   RIGHT CONTENT PANEL
+---------------------------------------*/
+.profile-content {
+    flex: 1;
+    background: var(--white);
+    padding: 35px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+    position: relative;
 }
 
-/* RIGHT SIDE */
-
-.profile-right {
-  background: var(--white);
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+/* --------------------------------------
+   TABS
+---------------------------------------*/
+.profile-tabs {
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 25px;
 }
 
+.tab {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: var(--light);
+    color: var(--gray);
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.tab:hover {
+    background: #e7f0ff;
+}
+
+.tab.active {
+    background: var(--accent);
+    color: white;
+}
+
+/* --------------------------------------
+   TAB CONTENT BOXES
+---------------------------------------*/
+.tab-box {
+    display: none;
+}
+
+.tab-box.active {
+    display: block;
+}
+
+/* --------------------------------------
+   FORM GRID + INPUTS
+---------------------------------------*/
 .section-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--primary);
 }
 
 .info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-bottom: 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 15px;
 }
 
 .info-box label {
-  font-weight: 600;
-  margin-bottom: 5px;
-  display: block;
-  font-size: 0.9rem;
-  color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    display: block;
+    color: var(--gray);
 }
 
-.info-box input {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--light);
-  font-size: 1rem;
+/* ----------------------------------------------------
+   UNIFIED INPUT DESIGN (Input + Textarea + Select)
+-----------------------------------------------------*/
+.info-box input,
+.info-box textarea,
+.info-box select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--light);
+    font-size: 0.95rem;
+    transition: 0.2s;
 }
 
-.settings-box {
-  background: var(--light);
-  padding: 20px;
-  border-radius: 10px;
+/* Focus state for ALL fields */
+.info-box input:focus,
+.info-box textarea:focus,
+.info-box select:focus {
+    border-color: var(--accent);
+    background: #f0f7ff;
 }
 
-.settings-link {
-  display: block;
-  padding: 10px 0;
-  font-weight: 500;
-  text-decoration: none;
-  color: var(--accent);
-  font-size: 1rem;
+/* Textarea config */
+.info-box textarea {
+    resize: none;
 }
 
-.settings-link:hover {
-  text-decoration: underline;
+/* Full-width grid span */
+.full-width {
+    grid-column: span 2;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .profile-wrapper {
-    grid-template-columns: 1fr;
-  }
+/* ----------------------------------------------------
+   UNIFORM DISABLED + READONLY LOOK
+-----------------------------------------------------*/
+.info-box input[readonly],
+.info-box textarea[readonly],
+.info-box input[type="date"][readonly],
+.info-box select:disabled {
+    background: var(--light) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--gray) !important;
+    cursor: not-allowed;
+}
+
+/* ----------------------------------------------------
+   CUSTOM SELECT ARROW (Gender dropdown)
+-----------------------------------------------------*/
+.info-box select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='14' height='14' xmlns='http://www.w3.org/2000/svg'><path d='M2 5l5 5 5-5' stroke='black' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+/* ----------------------------------------------------
+   EDIT BUTTON
+-----------------------------------------------------*/
+.profile-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-header-row .section-title {
+    margin: 0;
+}
+
+.edit-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* ----------------------------------------------------
+   SAVE BUTTON
+-----------------------------------------------------*/
+.save-btn {
+    background: #28a745;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none;
+}
+
+.save-btn:hover {
+    background: #1e7d35;
+}
+
+/* ----------------------------------------------------
+   SUBSCRIPTION BOX
+-----------------------------------------------------*/
+.subscription-box {
+    max-width: 450px;
+    background: var(--light);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.subscription-box p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+/* --------------------------------------
+   RESPONSIVE
+---------------------------------------*/
+@media (max-width: 900px) {
+    .profile-page {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .profile-sidebar {
+        width: 100%;
+    }
+
+    .edit-btn {
+        right: 20px;
+        top: 120px;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
 }

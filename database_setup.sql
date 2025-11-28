@@ -14,3 +14,11 @@ CREATE TABLE IF NOT EXISTS `users` (
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
 )
+
+-- add new to the users table
+
+ALTER TABLE users 
+ADD address VARCHAR(255) NULL,
+ADD dob DATE NULL,
+ADD gender VARCHAR(20) NULL,
+ADD bio TEXT NULL;

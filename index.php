@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,15 +39,17 @@
               ?>
 
               <div class="profile-menu">
-                <img src="assets/profile.jpg" class="profile-icon" onclick="toggleMenu()">
+                <img src="assets/image/profile.jpg" class="profile-icon" onclick="toggleMenu()">
 
                 <div id="profileDropdown" class="dropdown-menu">
-                  <p><b><?php echo $_SESSION['fullname']; ?></b></p>
-                  <hr>
+                  <div class="profile-name"><?php echo $_SESSION['fullname']; ?></div>
+                  <div class="dropdown-divider"></div>
                   <a href="profile.php">My Profile</a>
-                  <a href="logout.php" style="color:red;">Logout</a>
+                  <a href="settings.php">Settings</a>
+                  <a href="logout.php" class="logout">Logout</a>
                 </div>
               </div>
+
               <?php
             } else {
               ?>

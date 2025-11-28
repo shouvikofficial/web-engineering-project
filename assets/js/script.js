@@ -112,3 +112,24 @@ window.addEventListener('scroll', function() {
     }
   });
 });
+
+
+//drop-down menu for profile
+
+function toggleMenu() {
+    let menu = document.getElementById("profileDropdown");
+
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+}
+
+document.addEventListener("click", function(event) {
+    let isClickInside = event.target.closest(".profile-menu");
+
+    if (!isClickInside) {
+        document.getElementById("profileDropdown").style.display = "none";
+    }
+});

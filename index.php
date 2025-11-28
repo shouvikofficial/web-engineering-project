@@ -46,7 +46,7 @@ session_start();
                   <div class="dropdown-divider"></div>
                   <a href="profile.php">My Profile</a>
                   <a href="settings.php">Settings</a>
-                  <a href="logout.php" class="logout">Logout</a>
+                  <a href="backend/logout.php" class="logout">Logout</a>
                 </div>
               </div>
 

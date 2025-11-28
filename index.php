@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
   <header class="header" id="header">
     <div class="container">
@@ -27,9 +29,31 @@
             <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
           <div class="nav-actions">
-            <a href="login.html" class="btn btn-outline">Login</a>
-            <a href="register.php" class="btn btn-primary">Join Now</a>
+            <?php
+            if (isset($_SESSION['user_id'])) {
+              ?>
+
+              <div class="profile-menu">
+                <img src="assets/profile.jpg" class="profile-icon" onclick="toggleMenu()">
+
+                <div id="profileDropdown" class="dropdown-menu">
+                  <p><b><?php echo $_SESSION['fullname']; ?></b></p>
+                  <hr>
+                  <a href="profile.php">My Profile</a>
+                  <a href="logout.php" style="color:red;">Logout</a>
+                </div>
+              </div>
+              <?php
+            } else {
+              ?>
+              <a href="login.php" class="btn btn-outline">Login</a>
+              <a href="register.php" class="btn btn-primary">Join Now</a>
+
+              <?php
+            }
+            ?>
           </div>
+
         </nav>
         <button class="menu-toggle" id="menuToggle">
           <span class="menu-toggle-bar"></span>
@@ -46,7 +70,8 @@
       <div class="hero-content container">
         <span class="hero-badge">Fitness Center</span>
         <h1 class="hero-title">Transform Your Body,<br>Elevate Your Mind</h1>
-        <p class="hero-subtitle">Experience professional training, state-of-the-art equipment, and a supportive community designed to help you achieve your fitness goals.</p>
+        <p class="hero-subtitle">Experience professional training, state-of-the-art equipment, and a supportive
+          community designed to help you achieve your fitness goals.</p>
         <div class="hero-buttons">
           <a href="register.html" class="btn btn-primary btn-lg">Start Your Journey</a>
           <a href="#classes" class="btn btn-secondary btn-lg">Explore Classes</a>
@@ -97,8 +122,10 @@
         <div class="about-content">
           <span class="section-tag">About Us</span>
           <h2>More Than Just a Gym</h2>
-          <p>We believe fitness should feel friendly and achievable. Our center combines a welcoming environment with professional support so you can train confidently, no matter your starting point.</p>
-          <p>Whether you're a beginner or a pro athlete, DiuGym provides the space and guidance you need to reach your goals.</p>
+          <p>We believe fitness should feel friendly and achievable. Our center combines a welcoming environment with
+            professional support so you can train confidently, no matter your starting point.</p>
+          <p>Whether you're a beginner or a pro athlete, DiuGym provides the space and guidance you need to reach your
+            goals.</p>
           <a href="#contact" class="btn btn-text">Learn More &rarr;</a>
         </div>
         <div class="about-image">
@@ -332,4 +359,5 @@
 
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>

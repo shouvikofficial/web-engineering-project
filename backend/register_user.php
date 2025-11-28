@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 
-if(isset($_POST['register'])) {
+if (isset($_POST['register'])) {
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -9,20 +9,24 @@ if(isset($_POST['register'])) {
 
     $check = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($con, $check);
-    
-    if(mysqli_num_rows($result) > 0) {
-        echo "<script>alert('Email already exists!'); window.location.href='../register.html';</script>";
+
+    if (mysqli_num_rows($result) > 0) {
+        header("Location: ../register.php?error=email_exists");
+        exit();
     } else {
         $hashed = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users(fullname, email, phone, password) VALUES('$fullname', '$email', '$phone', '$hashed')";
-        
-        if(mysqli_query($con, $sql)) {
-            echo "<script>alert('Registration successful! Please login.'); window.location.href='../login.html';</script>";
+
+        if (mysqli_query($con, $sql)) {
+            header("Location: ../login.html");
+            exit();
         } else {
-            echo "<script>alert('Registration failed!'); window.location.href='../register.html';</script>";
+            header("Location: ../register.php");
+            exit();
         }
+
     }
 } else {
-    header("location: ../register.html");
+    header("location: ../register.php");
 }
 ?>

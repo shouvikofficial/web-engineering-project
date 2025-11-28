@@ -44,6 +44,14 @@
       <button type="submit" name="register" class="btn btn-primary full-width">Register</button>
       <p class="extra">Already have an account? <a href="login.html">Login here</a></p>
     </form>
+    <div id="error" style="color: red; margin-top: 10px; font-weight: 600;">
+    <?php
+    if(isset($_GET['error']) && $_GET['error'] === 'email_exists') {
+        echo "Email already exists!";
+    }
+    ?>
+</div>
+
   </div>
 
   <script>

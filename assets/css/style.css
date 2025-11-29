@@ -912,3 +912,1000 @@ body {
     padding: 30px 20px;
   }
 }
+
+/* from here onward changes is made by Akib. 
+classes*/
+
+/* Make sure global stuff doesn't interfere too much */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Only target this specific section */
+#classes {
+  padding: 80px 20px;
+  background: #222; /* Dark */
+  position: relative;
+  z-index: 1; /* Sits nicely above backgrounds behind it */
+  margin: 60px 0; /* Space from previous & next sections */
+}
+
+#classes .section-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Reset any weird inherited margins from global styles */
+#classes h2,
+#classes h3,
+#classes p {
+  margin-top: 0;
+}
+
+/* Section title */
+#classes h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+#classes h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 10px;
+  background: #ff6b6b; /* Primary accent */
+  border-radius: 999px;
+}
+
+/* Cards container */
+#classes .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* Individual card */
+#classes .card {
+  background: #2b2b2b;
+  border-radius: 18px;
+  padding: 24px 22px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+/* Accent glow */
+#classes .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 107, 107, 0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* Small “Class” pill */
+#classes .card::after {
+  content: "Class";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f5f5;
+}
+
+#classes .card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+#classes .card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d3d3d3;
+}
+
+/* Hover */
+#classes .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 107, 107, 0.5);
+  background: #252525;
+}
+
+#classes .card:hover::before {
+  opacity: 1;
+}
+
+/* Dot before heading */
+#classes .card h3::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: #ff6b6b;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #classes .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #classes {
+    padding: 60px 16px;
+    margin: 40px 0; /* slightly less margin on small screens */
+  }
+
+  #classes .cards {
+    grid-template-columns: 1fr;
+  }
+
+  #classes .card {
+    padding: 20px 18px;
+  }
+}
+
+/* from here onward changes is made by Akib. 
+Meet the trainer*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* from here onward changes is made by Shouvik. 
+profile Page*/
+/* Shouvik
+profile Page*/
+
+
+/* Profile Icon */
+.profile-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--border);
+  object-fit: cover;
+  transition: 0.2s;
+}
+
+.profile-icon:hover {
+  border-color: var(--accent);
+}
+
+
+.profile-menu {
+  position: relative;
+}
+
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 200px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  padding: 12px 0;
+  animation: menuFade 0.18s ease;
+  z-index: 1002;
+}
+
+
+@keyframes menuFade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.dropdown-username {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    color: var(--primary);
+}
+
+
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
+
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  color: var(--primary);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background: var(--light);
+}
+
+
+.dropdown-menu a.logout {
+  color: red;
+  font-weight: 600;
+}
+
+.dropdown-menu a.logout:hover {
+  background: #ffe7e7;
+}
+
+/* profile page */
+
+.profile-page {
+    display: flex;
+    gap: 35px;
+    padding: 50px 20px;
+    max-width: 1250px;
+    margin: 40px auto;
+}
+
+/* --------------------------------------
+   LEFT SIDEBAR
+---------------------------------------*/
+.profile-sidebar {
+    width: 300px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    margin-bottom: 15px;
+}
+
+.profile-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.profile-role {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+}
+
+/* -----------------------------
+   CLEAN & BALANCED PROFILE STATS
+   ----------------------------- */
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--light);
+    padding: 14px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin: 20px 0;
+}
+
+.profile-stats div {
+    text-align: center;
+}
+
+.profile-stats strong {
+    font-size: 1rem;          /* smaller */
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.profile-stats span {
+    font-size: 0.78rem;        /* much smaller text */
+    color: var(--gray);
+    display: block;
+    line-height: 1.2;
+}
+
+
+.profile-username {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 10px 0 20px;
+}
+
+/* --------------------------------------
+   RIGHT CONTENT PANEL
+---------------------------------------*/
+.profile-content {
+    flex: 1;
+    background: var(--white);
+    padding: 35px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+    position: relative;
+}
+
+/* --------------------------------------
+   TABS
+---------------------------------------*/
+.profile-tabs {
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+.tab {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: var(--light);
+    color: var(--gray);
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.tab:hover {
+    background: #e7f0ff;
+}
+
+.tab.active {
+    background: var(--accent);
+    color: white;
+}
+
+/* --------------------------------------
+   TAB CONTENT BOXES
+---------------------------------------*/
+.tab-box {
+    display: none;
+}
+
+.tab-box.active {
+    display: block;
+}
+
+/* --------------------------------------
+   FORM GRID + INPUTS
+---------------------------------------*/
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--primary);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 15px;
+}
+
+.info-box label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    display: block;
+    color: var(--gray);
+}
+
+/* ----------------------------------------------------
+   UNIFIED INPUT DESIGN (Input + Textarea + Select)
+-----------------------------------------------------*/
+.info-box input,
+.info-box textarea,
+.info-box select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--light);
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+
+/* Focus state for ALL fields */
+.info-box input:focus,
+.info-box textarea:focus,
+.info-box select:focus {
+    border-color: var(--accent);
+    background: #f0f7ff;
+}
+
+/* Textarea config */
+.info-box textarea {
+    resize: none;
+}
+
+/* Full-width grid span */
+.full-width {
+    grid-column: span 2;
+}
+
+/* ----------------------------------------------------
+   UNIFORM DISABLED + READONLY LOOK
+-----------------------------------------------------*/
+.info-box input[readonly],
+.info-box textarea[readonly],
+.info-box input[type="date"][readonly],
+.info-box select:disabled {
+    background: var(--light) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--gray) !important;
+    cursor: not-allowed;
+}
+
+/* ----------------------------------------------------
+   CUSTOM SELECT ARROW (Gender dropdown)
+-----------------------------------------------------*/
+.info-box select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='14' height='14' xmlns='http://www.w3.org/2000/svg'><path d='M2 5l5 5 5-5' stroke='black' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+/* ----------------------------------------------------
+   EDIT BUTTON
+-----------------------------------------------------*/
+.profile-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-header-row .section-title {
+    margin: 0;
+}
+
+.edit-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* ----------------------------------------------------
+   SAVE BUTTON
+-----------------------------------------------------*/
+.save-btn {
+    background: #28a745;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none;
+}
+
+.save-btn:hover {
+    background: #1e7d35;
+}
+
+/* ----------------------------------------------------
+   SUBSCRIPTION BOX
+-----------------------------------------------------*/
+.subscription-box {
+    max-width: 450px;
+    background: var(--light);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.subscription-box p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+/* --------------------------------------
+   RESPONSIVE
+---------------------------------------*/
+@media (max-width: 900px) {
+    .profile-page {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .profile-sidebar {
+        width: 100%;
+    }
+
+    .edit-btn {
+        right: 20px;
+        top: 120px;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+}
+
+
+
+/* ======================================================
+   SETTINGS PAGE (PROFESSIONAL + MATCHES PROFILE PAGE)
+====================================================== */
+
+/* Main container */
+.settings-container {
+    max-width: 1250px;
+    margin: 50px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 35px;
+}
+
+/* -----------------------------------------
+   LEFT SIDEBAR
+------------------------------------------ */
+.settings-sidebar {
+    background: var(--white);
+    padding: 25px 22px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.settings-sidebar h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 22px;
+    color: var(--primary);
+}
+
+/* Sidebar buttons/links */
+.settings-side-link {
+    display: block;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    background: var(--light);
+    border-radius: 10px;
+    color: var(--primary);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+/* Smooth hover (fixed — no jump) */
+.settings-side-link:hover:not(.active):not(.danger) {
+    background: #f0f6ff;
+    border-color: #c6dfff;
+    transform: translateX(4px);
+    color: var(--accent);
+}
+
+/* Active state (selected) */
+.settings-side-link.active {
+    background: #e8f1ff;
+    border-color: #007bff;
+    color: #007bff;
+    font-weight: 600;
+    transform: translateX(4px);
+}
+
+/* Danger link (Delete account) */
+.settings-side-link.danger {
+    color: #d80000;
+    background: #fff5f5;
+    border-color: #ffb3b3;
+    font-weight: 600;
+}
+
+.settings-side-link.danger:hover {
+    background: #ffe1e1;
+    border-color: #ff8d8d;
+    transform: translateX(4px);
+}
+
+/* -----------------------------------------
+   RIGHT PANEL CONTENT
+------------------------------------------ */
+.settings-panel {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: none;
+}
+
+.settings-panel.active {
+    display: block;
+}
+
+.settings-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.settings-subtitle {
+    font-size: 0.95rem;
+    color: var(--gray);
+    margin-bottom: 25px;
+}
+
+/* -----------------------------------------
+   SWITCH TOGGLE ROWS
+------------------------------------------ */
+.switch-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--primary);
+}
+
+/* Switch toggle */
+.switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+}
+
+.switch input { display: none; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #bbb;
+    border-radius: 24px;
+    transition: .3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    width: 18px; 
+    height: 18px;
+    left: 3px; 
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+input:checked + .slider {
+    background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* -----------------------------------------
+   THEME BUTTONS
+------------------------------------------ */
+.theme-box {
+    display: flex;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.theme-btn {
+    background: var(--light);
+    padding: 12px 22px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+}
+
+.theme-btn:hover {
+    background: #edf4ff;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* -----------------------------------------
+   ACTION BUTTON
+------------------------------------------ */
+.settings-action-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 25px;
+    transition: 0.25s;
+}
+
+.settings-action-btn:hover {
+    background: #005bbb;
+}
+
+/* -----------------------------------------
+   RESPONSIVE
+------------------------------------------ */
+@media (max-width: 900px) {
+    .settings-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .settings-sidebar {
+        width: 100%;
+    }
+}
+
+
+
+/* ===============================
+   PASSWORD UPDATE PAGE
+   ===============================*/
+
+.password-page {
+    max-width: 450px;
+    margin: 90px auto;
+    padding: 20px;
+}
+
+.password-box {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.password-box h2 {
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.password-box label {
+    display: block;
+    margin: 10px 0 6px;
+    font-weight: 600;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.password-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background: var(--light);
+    font-size: 0.95rem;
+}
+
+.password-box input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #f0f7ff;
+}
+
+/* Button */
+.password-update-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.2s;
+}
+
+.password-update-btn:hover {
+    background: #0052a3;
+}
+
+/* Success & Error Messages */
+.success-msg {
+    background: #d4ffd4;
+    padding: 10px;
+    margin-bottom: 12px;
+    color: green;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.error-msg {
+    background: #ffd4d4;
+    padding: 10px;
+    margin-bottom: 12px;
+    color: red;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 18px;
+    text-decoration: none;
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.back-link:hover {
+    padding-left: 4px;
+    text-decoration: underline;
+}
+
+/* ===============================
+   RESPONSIVE (Mobile Friendly)
+   ===============================*/
+@media (max-width: 480px) {
+    .password-page {
+        margin: 40px 15px;
+        padding: 10px;
+    }
+
+    .password-box {
+        padding: 22px;
+    }
+
+    .password-box h2 {
+        font-size: 1.25rem;
+    }
+
+    .password-update-btn {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .back-link {
+        font-size: 0.9rem;
+    }
+}
+/* Dark background overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(2px);
+    z-index: 9000;
+}
+
+/* Modal box */
+.delete-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    z-index: 9999;
+    animation: popup 0.25s ease-out;
+    text-align: center;
+}
+
+@keyframes popup {
+    from { transform: translate(-50%, -45%); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+.delete-modal h3 {
+    margin: 0 0 10px;
+    color: #d00000;
+    font-size: 1.2rem;
+}
+
+.delete-modal p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Buttons row */
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Red delete button */
+.btn-delete {
+    background: #d00000;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Gray cancel button */
+.btn-cancel {
+    background: #e5e5e5;
+    color: #333;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+

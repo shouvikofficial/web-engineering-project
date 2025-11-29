@@ -1,6 +1,6 @@
 <?php
+session_start();
 
-include 'includes/header.php'; 
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -28,6 +28,7 @@ $user = mysqli_fetch_assoc($result);
 </head>
 
 <body>
+    <?php include "includes/header.php"; ?>
 
 <div class="profile-page">
 

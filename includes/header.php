@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <header class="header" id="header">
     <div class="container">
         <div class="header-wrapper">

@@ -1482,3 +1482,463 @@ profile Page*/
         grid-column: span 1;
     }
 }
+
+
+
+/* ======================================================
+   SETTINGS PAGE (PROFESSIONAL + MATCHES PROFILE PAGE)
+====================================================== */
+
+/* Main container */
+.settings-container {
+    max-width: 1250px;
+    margin: 50px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 35px;
+}
+
+/* -----------------------------------------
+   LEFT SIDEBAR
+------------------------------------------ */
+.settings-sidebar {
+    background: var(--white);
+    padding: 25px 22px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.settings-sidebar h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 22px;
+    color: var(--primary);
+}
+
+/* Sidebar buttons/links */
+.settings-side-link {
+    display: block;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    background: var(--light);
+    border-radius: 10px;
+    color: var(--primary);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+/* Smooth hover (fixed — no jump) */
+.settings-side-link:hover:not(.active):not(.danger) {
+    background: #f0f6ff;
+    border-color: #c6dfff;
+    transform: translateX(4px);
+    color: var(--accent);
+}
+
+/* Active state (selected) */
+.settings-side-link.active {
+    background: #e8f1ff;
+    border-color: #007bff;
+    color: #007bff;
+    font-weight: 600;
+    transform: translateX(4px);
+}
+
+/* Danger link (Delete account) */
+.settings-side-link.danger {
+    color: #d80000;
+    background: #fff5f5;
+    border-color: #ffb3b3;
+    font-weight: 600;
+}
+
+.settings-side-link.danger:hover {
+    background: #ffe1e1;
+    border-color: #ff8d8d;
+    transform: translateX(4px);
+}
+
+/* -----------------------------------------
+   RIGHT PANEL CONTENT
+------------------------------------------ */
+.settings-panel {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: none;
+}
+
+.settings-panel.active {
+    display: block;
+}
+
+.settings-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.settings-subtitle {
+    font-size: 0.95rem;
+    color: var(--gray);
+    margin-bottom: 25px;
+}
+
+/* -----------------------------------------
+   SWITCH TOGGLE ROWS
+------------------------------------------ */
+.switch-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--primary);
+}
+
+/* Switch toggle */
+.switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+}
+
+.switch input { display: none; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #bbb;
+    border-radius: 24px;
+    transition: .3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    width: 18px; 
+    height: 18px;
+    left: 3px; 
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+input:checked + .slider {
+    background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* -----------------------------------------
+   THEME BUTTONS
+------------------------------------------ */
+.theme-box {
+    display: flex;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.theme-btn {
+    background: var(--light);
+    padding: 12px 22px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+}
+
+.theme-btn:hover {
+    background: #edf4ff;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* -----------------------------------------
+   ACTION BUTTON
+------------------------------------------ */
+.settings-action-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 25px;
+    transition: 0.25s;
+}
+
+.settings-action-btn:hover {
+    background: #005bbb;
+}
+
+/* -----------------------------------------
+   RESPONSIVE
+------------------------------------------ */
+@media (max-width: 900px) {
+    .settings-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .settings-sidebar {
+        width: 100%;
+    }
+}
+
+
+
+/* ===============================
+   PASSWORD UPDATE PAGE
+   ===============================*/
+
+.password-page {
+    max-width: 450px;
+    margin: 90px auto;
+    padding: 20px;
+}
+
+.password-box {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.password-box h2 {
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.password-box label {
+    display: block;
+    margin: 10px 0 6px;
+    font-weight: 600;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.password-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background: var(--light);
+    font-size: 0.95rem;
+}
+
+.password-box input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #f0f7ff;
+}
+
+/* Button */
+.password-update-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.2s;
+}
+
+.password-update-btn:hover {
+    background: #0052a3;
+}
+
+/* Success & Error Messages */
+.success-msg {
+    background: #d4ffd4;
+    padding: 10px;
+    margin-bottom: 12px;
+    color: green;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.error-msg {
+    background: #ffd4d4;
+    padding: 10px;
+    margin-bottom: 12px;
+    color: red;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 18px;
+    text-decoration: none;
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.back-link:hover {
+    padding-left: 4px;
+    text-decoration: underline;
+}
+
+/* ===============================
+   RESPONSIVE (Mobile Friendly)
+   ===============================*/
+@media (max-width: 480px) {
+    .password-page {
+        margin: 40px 15px;
+        padding: 10px;
+    }
+
+    .password-box {
+        padding: 22px;
+    }
+
+    .password-box h2 {
+        font-size: 1.25rem;
+    }
+
+    .password-update-btn {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .back-link {
+        font-size: 0.9rem;
+    }
+}
+/* Dark background overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(2px);
+    z-index: 9000;
+}
+
+/* Modal box */
+.delete-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    z-index: 9999;
+    animation: popup 0.25s ease-out;
+    text-align: center;
+}
+
+@keyframes popup {
+    from { transform: translate(-50%, -45%); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+.delete-modal h3 {
+    margin: 0 0 10px;
+    color: #d00000;
+    font-size: 1.2rem;
+}
+
+.delete-modal p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Buttons row */
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Red delete button */
+.btn-delete {
+    background: #d00000;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Gray cancel button */
+.btn-cancel {
+    background: #e5e5e5;
+    color: #333;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* Delete Panel Title */
+.delete-title {
+    color: red;
+}
+
+/* Label */
+.delete-label {
+    font-weight: 600;
+}
+
+/* Password Input */
+.delete-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Continue Button */
+.delete-continue-btn {
+    background: red;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-continue-btn:hover {
+    background: #cc0000;
+}

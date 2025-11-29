@@ -1909,36 +1909,3 @@ input:checked + .slider:before {
 }
 
 
-/* Delete Panel Title */
-.delete-title {
-    color: red;
-}
-
-/* Label */
-.delete-label {
-    font-weight: 600;
-}
-
-/* Password Input */
-.delete-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-/* Continue Button */
-.delete-continue-btn {
-    background: red;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.delete-continue-btn:hover {
-    background: #cc0000;
-}

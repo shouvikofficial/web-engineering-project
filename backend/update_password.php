@@ -18,7 +18,7 @@ if ($newpass !== $confirm) {
     exit();
 }
 
-// Fetch user old password
+
 $sql = "SELECT password FROM users WHERE id='$user_id'";
 $res = mysqli_query($con, $sql);
 $user = mysqli_fetch_assoc($res);
@@ -28,10 +28,10 @@ if (!password_verify($current, $user['password'])) {
     exit();
 }
 
-// Hash new password
+
 $hashed = password_hash($newpass, PASSWORD_DEFAULT);
 
-// Update DB
+
 $update = "UPDATE users SET password='$hashed' WHERE id='$user_id'";
 mysqli_query($con, $update);
 

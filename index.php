@@ -27,7 +27,7 @@
         <p class="hero-subtitle">Experience professional training, state-of-the-art equipment, and a supportive
           community designed to help you achieve your fitness goals.</p>
         <div class="hero-buttons">
-          <a href="register.html" class="btn btn-primary btn-lg">Start Your Journey</a>
+          <a href="register.php" class="btn btn-primary btn-lg">Start Your Journey</a>
           <a href="#classes" class="btn btn-secondary btn-lg">Explore Classes</a>
         </div>
         <div class="hero-stats">

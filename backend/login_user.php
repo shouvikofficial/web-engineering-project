@@ -14,8 +14,15 @@ if(isset($_POST['login'])) {
         
         if(password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['fullname'] = $user['fullname'];
+            $_SESSION['full_name'] = $user['fullname']; // Changed from fullname to full_name to match dashboard
             $_SESSION['email'] = $user['email'];
+            $_SESSION['role'] = $user['role'];
+
+            if ($user['role'] === 'admin') {
+                echo "<script>window.location.href='../dashboards/admin/index.php';</script>";
+            } else {
+                echo "<script>window.location.href='../dashboards/user/index.php';</script>";
+            }
             $_SESSION['phone'] = $user['phone'];
 
             

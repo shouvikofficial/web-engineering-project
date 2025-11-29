@@ -23,13 +23,22 @@ if(isset($_POST['login'])) {
             } else {
                 echo "<script>window.location.href='../dashboards/user/index.php';</script>";
             }
+            $_SESSION['phone'] = $user['phone'];
+
+            
+            header("Location: ../index.php");
+            exit();
+
         } else {
-            echo "<script>alert('Invalid email or password!'); window.location.href='../login.html';</script>";
+            header("Location: ../login.php?error=invalid");
+            exit();
         }
     } else {
-        echo "<script>alert('Invalid email or password!'); window.location.href='../login.html';</script>";
+        header("Location: ../login.php?error=invalid");
+        exit();
     }
 } else {
-    header("location: ../login.html");
+    header("location: ../login.php");
+    exit();
 }
 ?>

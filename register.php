@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
   <div class="form-container">
     <h2>Create a New Account</h2>
@@ -42,7 +44,14 @@
         <span id="matchError" style="font-size: 0.85rem;"></span>
       </div>
       <button type="submit" name="register" class="btn btn-primary full-width">Register</button>
-      <p class="extra">Already have an account? <a href="login.html">Login here</a></p>
+      <div id="error" style="color: red; margin-top: 10px; font-weight: 600; text-align:center;">
+        <?php
+        if (isset($_GET['error']) && $_GET['error'] === 'email_exists') {
+          echo "Email already exists!";
+        }
+        ?>
+      </div>
+      <p class="extra">Already have an account? <a href="login.php">Login here</a></p>
     </form>
   </div>
 
@@ -89,7 +98,7 @@
     }
 
     // Name validation
-    document.getElementById("fullname").addEventListener("input", function() {
+    document.getElementById("fullname").addEventListener("input", function () {
       const val = this.value;
       let err = "";
       for (let i = 0; i < val.length; i++) {
@@ -103,10 +112,10 @@
     });
 
     // Password validation
-    document.getElementById("password").addEventListener("input", function() {
+    document.getElementById("password").addEventListener("input", function () {
       const val = this.value;
       let hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false;
-      
+
       for (let i = 0; i < val.length; i++) {
         const ch = val[i];
         if (ch >= 'A' && ch <= 'Z') hasUpper = true;
@@ -118,26 +127,27 @@
       const ok = "#10b981", err = "#dc2626";
       document.getElementById("cap").innerHTML = hasUpper ? "<br>✅ Capital letter" : "<br>❌ One capital letter";
       document.getElementById("cap").style.color = hasUpper ? ok : err;
-      
+
       document.getElementById("low").innerHTML = hasLower ? "<br>✅ Lowercase" : "<br>❌ One lowercase";
       document.getElementById("low").style.color = hasLower ? ok : err;
-      
+
       document.getElementById("num").innerHTML = hasDigit ? "<br>✅ Digit" : "<br>❌ One digit";
       document.getElementById("num").style.color = hasDigit ? ok : err;
-      
+
       document.getElementById("spec").innerHTML = hasSpecial ? "<br>✅ Special char" : "<br>❌ One special char";
       document.getElementById("spec").style.color = hasSpecial ? ok : err;
     });
 
     // Confirm password validation
-    document.getElementById("confirm").addEventListener("input", function() {
+    document.getElementById("confirm").addEventListener("input", function () {
       const pass = document.getElementById("password").value;
       const conf = this.value;
       const match = pass === conf;
-      
+
       document.getElementById("matchError").innerHTML = match ? "<br>✅ Passwords match" : "<br>❌ Passwords do not match";
       document.getElementById("matchError").style.color = match ? "#10b981" : "#dc2626";
     });
   </script>
 </body>
+
 </html>

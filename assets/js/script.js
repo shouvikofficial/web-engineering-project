@@ -112,3 +112,105 @@ window.addEventListener('scroll', function() {
     }
   });
 });
+
+
+//drop-down menu for profile
+
+function toggleMenu() {
+    let menu = document.getElementById("profileDropdown");
+
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+}
+
+document.addEventListener("click", function(event) {
+    let isClickInside = event.target.closest(".profile-menu");
+
+    if (!isClickInside) {
+        document.getElementById("profileDropdown").style.display = "none";
+    }
+});
+
+//profile page
+function openTab(tabID) {
+    document.querySelectorAll(".tab-box").forEach(box => box.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(btn => btn.classList.remove("active"));
+
+    document.getElementById(tabID).classList.add("active");
+    event.target.classList.add("active");
+}
+
+/* SWITCH TO EDIT MODE */
+function enableEditing() {
+
+    // Enable all inputs & textarea
+    document.querySelectorAll("#about input, #about textarea").forEach(el => {
+        el.removeAttribute("readonly");
+        el.style.background = "white";
+        el.style.border = "1px solid #007bff";
+    });
+
+    // Enable Gender dropdown
+    let gender = document.getElementById("gender");
+    gender.disabled = false;
+    gender.style.background = "white";
+    gender.style.border = "1px solid #007bff";
+
+    // Show Save button
+    document.getElementById("saveBtn").style.display = "block";
+
+    // Hide Edit button
+    document.querySelector(".edit-btn").style.display = "none";
+}
+
+
+
+/* SAVE PROFILE TO DATABASE */
+function saveProfile() {
+
+    let formData = new FormData();
+
+    formData.append("fullname", document.getElementById("fullname").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("phone", document.getElementById("phone").value);
+    formData.append("address", document.getElementById("address").value);
+    formData.append("dob", document.getElementById("dob").value);
+    formData.append("gender", document.getElementById("gender").value);
+    formData.append("bio", document.getElementById("bio").value);
+
+    fetch("backend/update_profile.php", {
+        method: "POST",
+        body: formData,
+        credentials: "include" 
+    })
+    .then(res => res.text())
+    .then(data => {
+
+        if (data === "success") {
+
+            // Lock everything again
+            document.querySelectorAll("#about input, #about textarea").forEach(el => {
+                el.setAttribute("readonly", true);
+                el.style.background = "";
+                el.style.border = "1px solid var(--border)";
+            });
+
+            // Lock gender dropdown
+            let gender = document.getElementById("gender");
+            gender.disabled = true;
+            gender.style.background = "";
+            gender.style.border = "1px solid var(--border)";
+
+            // Hide Save button
+            document.getElementById("saveBtn").style.display = "none";
+
+            // Show Edit button
+            document.querySelector(".edit-btn").style.display = "block";
+        } else {
+            alert("Error: " + data);
+        }
+    });
+}

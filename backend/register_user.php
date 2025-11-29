@@ -17,7 +17,7 @@ if(isset($_POST['register'])) {
         $sql = "INSERT INTO users(fullname, email, phone, password) VALUES('$fullname', '$email', '$phone', '$hashed')";
         
         if(mysqli_query($con, $sql)) {
-            echo "<script>alert('Registration successful! Please login.'); window.location.href='../login.html';</script>";
+            echo "<script>alert('Registration successful!'); window.location.href='../login.html';</script>";
         } else {
             echo "<script>alert('Registration failed!'); window.location.href='../register.html';</script>";
         }

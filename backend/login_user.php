@@ -18,15 +18,13 @@ if(isset($_POST['login'])) {
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
 
-            if ($user['role'] === 'admin') {
-                echo "<script>window.location.href='../dashboards/admin/index.php';</script>";
-            } else {
-                echo "<script>window.location.href='../dashboards/user/index.php';</script>";
-            }
             $_SESSION['phone'] = $user['phone'];
 
-            
-            header("Location: ../index.php");
+            if ($user['role'] === 'admin') {
+                header("Location: ../dashboards/admin/index.php");
+            } else {
+                header("Location: ../dashboards/user/index.php");
+            }
             exit();
 
         } else {

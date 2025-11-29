@@ -17,6 +17,11 @@ $trainer_query = "SELECT COUNT(*) as total FROM trainers";
 $trainer_result = mysqli_query($con, $trainer_query);
 $trainer_count = mysqli_fetch_assoc($trainer_result)['total'] ?? 0;
 
+//count classes
+$class_query = "SELECT COUNT(*) as total FROM gym_classes";
+$class_result = mysqli_query($con, $class_query);
+$class_count = mysqli_fetch_assoc($class_result)['total'] ?? 0;
+
 // count total income
 $income_query = "SELECT SUM(amount) as total FROM payments"; //sum of total income from our tabile
 $income_result = @mysqli_query($con, $income_query); //result we get from the income-query
@@ -41,6 +46,10 @@ include '../includes/header.php';
         <div class="value"><?php echo $trainer_count; ?></div>
     </div>
     <div class="stat-card">
+        <h3>Total Classes</h3>
+        <div class="value"><?php echo $class_count; ?></div>
+    </div>
+    <div class="stat-card">
         <h3>Total Income</h3>
         <div class="value">$<?php echo number_format($total_income, 2); ?></div>
     </div>
@@ -51,6 +60,7 @@ include '../includes/header.php';
     <div style="display: flex; gap: 10px;">
         <a href="members.php" class="btn btn-primary">Manage Members</a>
         <a href="trainers.php" class="btn btn-primary">Manage Trainers</a>
+        <a href="classes.php" class="btn btn-primary">Manage Classes</a>
     </div>
 </div>
 

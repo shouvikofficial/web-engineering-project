@@ -14,19 +14,19 @@ if(isset($_POST['login'])) {
         
         if(password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['fullname'] = $user['fullname']; // Changed from fullname to full_name to match dashboard
+            $_SESSION['fullname'] = $user['fullname']; 
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
 
             if ($user['role'] === 'admin') {
                 echo "<script>window.location.href='../dashboards/admin/index.php';</script>";
             } else {
-                echo "<script>window.location.href='../dashboards/user/index.php';</script>";
+                echo "<script>window.location.href='../index.php';</script>";
             }
             $_SESSION['phone'] = $user['phone'];
 
-            
-            header("Location: ../index.php");
+            // *** FIX: Remove/Disable wrong redirect ***
+            // header("Location: ../index.php");
             exit();
 
         } else {

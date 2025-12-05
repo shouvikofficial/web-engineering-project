@@ -178,7 +178,7 @@
     </div>
 </section>
 
-    <section id="pricing" class="section bg-dark text-white">
+   <section id="pricing" class="section bg-dark text-white">
     <div class="container">
         <div class="section-header text-center">
             <span class="section-tag">Membership</span>
@@ -222,9 +222,8 @@
             echo '
                 </ul>
 
-                <a href="register.php?plan=' . $p['id'] . '" class="btn ';
+                <a href="start.php?plan=' . $p['id'] . '" class="btn ';
 
-                // Middle plan is highlighted (Plus)
                 if ($p['plan_name'] == "Plus") {
                     echo 'btn-primary';
                 } else {
@@ -233,7 +232,7 @@
 
             echo ' full-width">Get Started</a>
 
-            </div>
+            </div> <!-- END pricing-card -->
             ';
         }
         ?>
@@ -241,6 +240,7 @@
         </div>
     </div>
 </section>
+
 
 
     <section id="contact" class="section bg-light">

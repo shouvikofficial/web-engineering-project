@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `trainers` (
     `name` VARCHAR(100) NOT NULL,
     `specialty` VARCHAR(100) NOT NULL, -- e.g., 'Weight Loss', 'Body Building'
     `experience` VARCHAR(50),          -- e.g., '5 Years'
-    `image` VARCHAR(255) DEFAULT 'default_trainer.png',
+    `image_url` VARCHAR(255) DEFAULT 'default_trainer.png',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
@@ -122,13 +122,6 @@ INSERT INTO `pricing_plans` (`plan_name`, `price`, `features`) VALUES
 ('Starter', 2500.00, 'Gym floor access, 2 classes per week, Monthly check-in'),
 ('Plus', 4000.00, 'Unlimited gym access, Unlimited classes, Workout plan'),
 ('Premium', 6500.00, 'All Plus features, 1-on-1 coaching, Nutrition plan');
-
-
--- Insert Sample Trainers
-INSERT INTO `trainers` (`name`, `specialty`) VALUES 
-('Nehal S.', 'Strength Coach'), 
-('Sadia K.', 'Nutrition Specialist'), 
-('Ayan A.', 'HIIT Instructor');
 
 
 -- add new to the users table

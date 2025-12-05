@@ -123,17 +123,13 @@ INSERT INTO `pricing_plans` (`plan_name`, `price`, `features`) VALUES
 ('Plus', 4000.00, 'Unlimited gym access, Unlimited classes, Workout plan'),
 ('Premium', 6500.00, 'All Plus features, 1-on-1 coaching, Nutrition plan');
 
--- Insert a Default Admin User (Password: admin123)
--- NOTE: In a real app, this password string should be HASHED using PHP password_hash()
-INSERT INTO `users` (`fullname`, `email`, `phone`, `password`, `role`) 
-VALUES ('Super Admin', 'admin@diugym.com', '01700000000', '$2y$10$YourHashedPasswordHere', 'admin');
 
 -- Insert Sample Trainers
 INSERT INTO `trainers` (`name`, `specialty`) VALUES 
 ('Nehal S.', 'Strength Coach'), 
 ('Sadia K.', 'Nutrition Specialist'), 
 ('Ayan A.', 'HIIT Instructor');
-)
+
 
 -- add new to the users table
 

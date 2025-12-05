@@ -179,54 +179,69 @@
 </section>
 
     <section id="pricing" class="section bg-dark text-white">
-      <div class="container">
+    <div class="container">
         <div class="section-header text-center">
-          <span class="section-tag">Membership</span>
-          <h2 class="text-white">Choose Your Plan</h2>
+            <span class="section-tag">Membership</span>
+            <h2 class="text-white">Choose Your Plan</h2>
         </div>
+
         <div class="pricing-grid">
-          <div class="card pricing-card">
-            <div class="pricing-header">
-              <h3>Starter</h3>
-              <div class="price">৳2,500<span>/mo</span></div>
+
+        <?php
+        include 'backend/connection.php';
+
+        $plans = mysqli_query($con, "SELECT * FROM pricing_plans ORDER BY price ASC");
+
+        while ($p = mysqli_fetch_assoc($plans)) {
+
+            // Convert features into list items
+            $features = explode(",", $p['features']);
+
+            echo '
+            <div class="card pricing-card">
+
+                <div class="pricing-header">
+                    <h3>' . $p['plan_name'] . '</h3>
+                    <div class="price">৳' . number_format($p['price']) . '<span>/mo</span></div>
+                </div>
+
+                <ul class="pricing-features">';
+                
+                foreach ($features as $f) {
+                    $f = trim($f);
+
+                    // Check for disabled item :no
+                    if (str_ends_with($f, ":no")) {
+                        $clean = str_replace(":no", "", $f);
+                        echo '<li class="disabled">❌ ' . $clean . '</li>';
+                    } else {
+                        echo '<li>✅ ' . $f . '</li>';
+                    }
+                }
+
+            echo '
+                </ul>
+
+                <a href="register.php?plan=' . $p['id'] . '" class="btn ';
+
+                // Middle plan is highlighted (Plus)
+                if ($p['plan_name'] == "Plus") {
+                    echo 'btn-primary';
+                } else {
+                    echo 'btn-outline-dark';
+                }
+
+            echo ' full-width">Get Started</a>
+
             </div>
-            <ul class="pricing-features">
-              <li>✅ Gym floor access</li>
-              <li>✅ 2 classes per week</li>
-              <li>✅ Monthly fitness check-in</li>
-              <li class="disabled">❌ Personal coaching</li>
-            </ul>
-            <a href="register.html" class="btn btn-outline-dark full-width">Get Started</a>
-          </div>
-          <div class="card pricing-card">
-            <div class="pricing-header">
-              <h3>Plus</h3>
-              <div class="price">৳4,000<span>/mo</span></div>
-            </div>
-            <ul class="pricing-features">
-              <li>✅ Unlimited gym access</li>
-              <li>✅ Unlimited group classes</li>
-              <li>✅ Personalized workout plan</li>
-              <li>✅ Wellness resources</li>
-            </ul>
-            <a href="register.html" class="btn btn-primary full-width">Get Started</a>
-          </div>
-          <div class="card pricing-card">
-            <div class="pricing-header">
-              <h3>Premium</h3>
-              <div class="price">৳6,500<span>/mo</span></div>
-            </div>
-            <ul class="pricing-features">
-              <li>✅ Everything in Plus</li>
-              <li>✅ 1-on-1 coaching (2x/month)</li>
-              <li>✅ Custom nutrition plan</li>
-              <li>✅ Priority support 24/7</li>
-            </ul>
-            <a href="register.html" class="btn btn-outline-dark full-width">Get Started</a>
-          </div>
+            ';
+        }
+        ?>
+
         </div>
-      </div>
-    </section>
+    </div>
+</section>
+
 
     <section id="contact" class="section bg-light">
       <div class="container contact-container">

@@ -25,7 +25,7 @@
                     <strong>DiuGym</strong>
                 </div>
                 <div class="user-actions">
-                    <span>Welcome, <?php echo isset($_SESSION['full_name']) ? htmlspecialchars($_SESSION['full_name']) : 'User'; ?></span>
+                    <span>Welcome, <?php echo isset($_SESSION['fullname']) ? htmlspecialchars($_SESSION['fullname']) : 'User'; ?></span>
                     <a href="../../backend/logout.php" class="btn-danger" style="margin-left: 15px;">Logout</a>
                 </div>
             </header>

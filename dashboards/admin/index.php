@@ -4,7 +4,7 @@ include '../../backend/connection.php';
 
 // only admin role can access function
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../../login.html");
+    header("Location: ../../login.php");
     exit();
 }
 //count member

@@ -51,6 +51,7 @@ include '../includes/header.php';
     <div style="display: flex; gap: 10px;">
         <a href="members.php" class="btn btn-primary">Manage Members</a>
         <a href="trainers.php" class="btn btn-primary">Manage Trainers</a>
+        <a href="pricing_plans.php" class="btn btn-primary">Manage Plans</a>
     </div>
 </div>
 

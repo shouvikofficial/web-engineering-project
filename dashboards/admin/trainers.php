@@ -3,7 +3,7 @@ session_start();
 include '../../backend/connection.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../../login.html");
+    header("Location: ../../login.php");
     exit();
 }
 
@@ -19,9 +19,13 @@ if (isset($_POST['add_trainer'])) {
         mysqli_stmt_bind_param($stmt, "sss", $name, $specialty, $image);
         
         if (mysqli_stmt_execute($stmt)) {
-            // Success
+            $msg = "<div style='color: green; margin-bottom: 10px;'>Trainer added successfully!</div>";
+        } else {
+            $msg = "<div style='color: red; margin-bottom: 10px;'>Error adding trainer.</div>";
         }
         mysqli_stmt_close($stmt);
+    } else {
+        $msg = "<div style='color: red; margin-bottom: 10px;'>Please fill in all fields.</div>";
     }
 }
 
@@ -29,6 +33,8 @@ include '../includes/header.php';
 ?>
 
 <h2>Manage Trainers</h2>
+
+<?php echo $msg; ?>
 
 <div class="form-card">
     <h3>Add New Trainer</h3>

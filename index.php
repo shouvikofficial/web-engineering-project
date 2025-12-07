@@ -13,25 +13,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    /* Fix for header layout issues */
-    .header-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-    }
-    .nav-list {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
 </head>
 
 <body>
@@ -144,95 +125,123 @@
     </section>
 
     <section id="trainers" class="section">
-      <div class="container">
+    <div class="container">
         <div class="section-header text-center">
-          <span class="section-tag">Expert Team</span>
-          <h2>Meet the Trainers</h2>
+            <span class="section-tag">Expert Team</span>
+            <h2>Meet the Trainers</h2>
         </div>
-        <div class="cards-grid">
-          <div class="card trainer-card">
-            <div class="trainer-img-wrapper">
-              <div class="trainer-placeholder"></div>
-            </div>
-            <div class="card-content text-center">
-              <h3>Nehal S.</h3>
-              <span class="trainer-role">Strength Coach</span>
-              <p>Dedicated to building sustainable training routines that last a lifetime.</p>
-            </div>
-          </div>
-          <div class="card trainer-card">
-            <div class="trainer-img-wrapper">
-              <div class="trainer-placeholder"></div>
-            </div>
-            <div class="card-content text-center">
-              <h3>Sadia K.</h3>
-              <span class="trainer-role">Nutrition Specialist</span>
-              <p>Pairs smart fueling strategies with functional workouts for optimal results.</p>
-            </div>
-          </div>
-          <div class="card trainer-card">
-            <div class="trainer-img-wrapper">
-              <div class="trainer-placeholder"></div>
-            </div>
-            <div class="card-content text-center">
-              <h3>Ayan A.</h3>
-              <span class="trainer-role">HIIT Instructor</span>
-              <p>Known for upbeat sessions that keep members motivated and moving.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="pricing" class="section bg-dark text-white">
-      <div class="container">
+        <div class="cards-grid">
+
+        <?php
+        
+        include 'backend/connection.php';
+
+      
+        $query = "SELECT * FROM trainers";
+        $result = mysqli_query($con, $query);
+
+       
+        if (mysqli_num_rows($result) > 0) {
+
+            while ($trainer = mysqli_fetch_assoc($result)) {
+
+               
+                if (!empty($trainer['image_url'])) {
+                    $image = $trainer['image_url'];
+                } else {
+                    $image = "default_trainer.png";
+                }
+
+              
+                echo "
+                <div class='card trainer-card'>
+                    <div class='trainer-img-wrapper'>
+                        <img src='$image' style='width:100%; height:250px; object-fit:cover; border-radius:10px;'>
+                    </div>
+
+                    <div class='card-content text-center'>
+                        <h3>" . $trainer['name'] . "</h3>
+                        <span class='trainer-role'>" . $trainer['specialty'] . "</span>
+                        <p>Professional fitness trainer</p>
+                    </div>
+                </div>
+                ";
+            }
+
+        } else {
+            echo "<p style='text-align:center; width:100%;'>No trainers available.</p>";
+        }
+        ?>
+
+        </div>
+    </div>
+</section>
+
+   <section id="pricing" class="section bg-dark text-white">
+    <div class="container">
         <div class="section-header text-center">
-          <span class="section-tag">Membership</span>
-          <h2 class="text-white">Choose Your Plan</h2>
+            <span class="section-tag">Membership</span>
+            <h2 class="text-white">Choose Your Plan</h2>
         </div>
+
         <div class="pricing-grid">
-          <div class="card pricing-card">
-            <div class="pricing-header">
-              <h3>Starter</h3>
-              <div class="price">৳2,500<span>/mo</span></div>
-            </div>
-            <ul class="pricing-features">
-              <li>✅ Gym floor access</li>
-              <li>✅ 2 classes per week</li>
-              <li>✅ Monthly fitness check-in</li>
-              <li class="disabled">❌ Personal coaching</li>
-            </ul>
-            <a href="register.html" class="btn btn-outline-dark full-width">Get Started</a>
-          </div>
-          <div class="card pricing-card">
-            <div class="pricing-header">
-              <h3>Plus</h3>
-              <div class="price">৳4,000<span>/mo</span></div>
-            </div>
-            <ul class="pricing-features">
-              <li>✅ Unlimited gym access</li>
-              <li>✅ Unlimited group classes</li>
-              <li>✅ Personalized workout plan</li>
-              <li>✅ Wellness resources</li>
-            </ul>
-            <a href="register.html" class="btn btn-primary full-width">Get Started</a>
-          </div>
-          <div class="card pricing-card">
-            <div class="pricing-header">
-              <h3>Premium</h3>
-              <div class="price">৳6,500<span>/mo</span></div>
-            </div>
-            <ul class="pricing-features">
-              <li>✅ Everything in Plus</li>
-              <li>✅ 1-on-1 coaching (2x/month)</li>
-              <li>✅ Custom nutrition plan</li>
-              <li>✅ Priority support 24/7</li>
-            </ul>
-            <a href="register.html" class="btn btn-outline-dark full-width">Get Started</a>
-          </div>
+
+        <?php
+        include 'backend/connection.php';
+
+        $plans = mysqli_query($con, "SELECT * FROM pricing_plans ORDER BY price ASC");
+
+        while ($p = mysqli_fetch_assoc($plans)) {
+
+            // Convert features into list items
+            $features = explode(",", $p['features']);
+
+            echo '
+            <div class="card pricing-card">
+
+                <div class="pricing-header">
+                    <h3>' . $p['plan_name'] . '</h3>
+                    <div class="price">৳' . number_format($p['price']) . '<span>/mo</span></div>
+                </div>
+
+                <ul class="pricing-features">';
+                
+                foreach ($features as $f) {
+                    $f = trim($f);
+
+                    // Check for disabled item :no
+                    if (str_ends_with($f, ":no")) {
+                        $clean = str_replace(":no", "", $f);
+                        echo '<li class="disabled">❌ ' . $clean . '</li>';
+                    } else {
+                        echo '<li>✅ ' . $f . '</li>';
+                    }
+                }
+
+            echo '
+                </ul>
+
+                <a href="start.php?plan=' . $p['id'] . '" class="btn ';
+
+                if ($p['plan_name'] == "Plus") {
+                    echo 'btn-primary';
+                } else {
+                    echo 'btn-outline-dark';
+                }
+
+            echo ' full-width">Get Started</a>
+
+            </div> <!-- END pricing-card -->
+            ';
+        }
+        ?>
+
         </div>
-      </div>
-    </section>
+    </div>
+</section>
+
+
 
     <section id="contact" class="section bg-light">
       <div class="container contact-container">

@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#form1{
+    width: 30%;
+}
+
+#form2{
+    width: 30%;
+    display: none;
+}
+
+
+fieldset{
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 3px 3px rgb(223, 167, 167);
+}
+
+input{
+    border: 1px solid rgb(223, 167, 167);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+a{
+    text-decoration: none;
+}

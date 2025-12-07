@@ -134,43 +134,43 @@
         <div class="cards-grid">
 
         <?php
-        
         include 'backend/connection.php';
 
-      
-        $query = "SELECT * FROM trainers";
-        $result = mysqli_query($con, $query);
+        // get trainers from database
+        $sql = "SELECT * FROM trainers";
+        $result = mysqli_query($con, $sql);
 
-       
         if (mysqli_num_rows($result) > 0) {
 
-            while ($trainer = mysqli_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                
+                // get trainer from our database
+                $name = $row['name'];
+                $specialty = $row['specialty'];
+                $img = $row['image_url'];
 
-               
-                if (!empty($trainer['image_url'])) {
-                    $image = $trainer['image_url'];
-                } else {
-                    $image = "default_trainer.png";
+                // for use defalt photo
+                if ($img == "") {
+                    $img = "default_trainer.png";
                 }
+                ?>
 
-              
-                echo "
-                <div class='card trainer-card'>
-                    <div class='trainer-img-wrapper'>
-                        <img src='$image' style='width:100%; height:250px; object-fit:cover; border-radius:10px;'>
+                <div class="card trainer-card">
+                    <div class="trainer-img-wrapper">
+                        <img src="<?php echo $img; ?>" style="width:100%; height:250px; object-fit:cover; border-radius:10px;">
                     </div>
 
-                    <div class='card-content text-center'>
-                        <h3>" . $trainer['name'] . "</h3>
-                        <span class='trainer-role'>" . $trainer['specialty'] . "</span>
+                    <div class="card-content text-center">
+                        <h3><?php echo $name; ?></h3>
+                        <span class="trainer-role"><?php echo $specialty; ?></span>
                         <p>Professional fitness trainer</p>
                     </div>
                 </div>
-                ";
-            }
 
+                <?php
+            }
         } else {
-            echo "<p style='text-align:center; width:100%;'>No trainers available.</p>";
+            echo "No trainers found";
         }
         ?>
 
@@ -190,50 +190,57 @@
         <?php
         include 'backend/connection.php';
 
-        $plans = mysqli_query($con, "SELECT * FROM pricing_plans ORDER BY price ASC");
+        //get all pricing 
+        $sql = "SELECT * FROM pricing_plans ORDER BY price ASC";
+        $result = mysqli_query($con, $sql);
 
-        while ($p = mysqli_fetch_assoc($plans)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $id = $row['id'];
+            $name = $row['plan_name'];
+            $price = $row['price'];
+            $features_list = $row['features'];
 
-            // Convert features into list items
-            $features = explode(",", $p['features']);
+            $features = explode(",", $features_list);
+            ?>
 
-            echo '
             <div class="card pricing-card">
 
                 <div class="pricing-header">
-                    <h3>' . $p['plan_name'] . '</h3>
-                    <div class="price">৳' . number_format($p['price']) . '<span>/mo</span></div>
+                    <h3><?php echo $name; ?></h3>
+                    <div class="price">৳<?php echo number_format($price); ?><span>/mo</span></div>
                 </div>
 
-                <ul class="pricing-features">';
-                
-                foreach ($features as $f) {
-                    $f = trim($f);
+                <ul class="pricing-features">
+                    <?php
+                    // show all features
+                    for ($i = 0; $i < count($features); $i++) {
+                        $feature = trim($features[$i]);
 
-                    // Check for disabled item :no
-                    if (str_ends_with($f, ":no")) {
-                        $clean = str_replace(":no", "", $f);
-                        echo '<li class="disabled">❌ ' . $clean . '</li>';
-                    } else {
-                        echo '<li>✅ ' . $f . '</li>';
+                        // check if disabled
+                        if (strpos($feature, ":no") == true) {
+                            $feature = str_replace(":no", "", $feature);
+                            echo "<li class='disabled'>❌ $feature</li>";
+                        } else {
+                            echo "<li>✅ $feature</li>";
+                        }
                     }
-                }
-
-            echo '
+                    ?>
                 </ul>
 
-                <a href="start.php?plan=' . $p['id'] . '" class="btn ';
-
-                if ($p['plan_name'] == "Plus") {
-                    echo 'btn-primary';
+                <?php
+                // button style
+                if ($name == "Plus") {
+                    $button = "btn-primary";
                 } else {
-                    echo 'btn-outline-dark';
+                    $button = "btn-outline-dark";
                 }
+                ?>
 
-            echo ' full-width">Get Started</a>
+                <a href="start.php?plan=<?php echo $id; ?>" class="btn <?php echo $button; ?> full-width">Get Started</a>
 
-            </div> <!-- END pricing-card -->
-            ';
+            </div>
+
+            <?php
         }
         ?>
 

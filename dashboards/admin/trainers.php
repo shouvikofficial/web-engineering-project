@@ -7,7 +7,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
-// Handle Add Trainer
+// handle Add Trainer
 $msg = "";
 if (isset($_POST['add_trainer'])) {
     $name = $_POST['name'];
@@ -28,7 +28,7 @@ if (isset($_POST['add_trainer'])) {
     }
 }
 
-// Handle Update Trainer
+// handle hpdate Trainer
 if (isset($_POST['update_trainer'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
@@ -47,7 +47,7 @@ if (isset($_POST['update_trainer'])) {
 
 include '../includes/header.php';
 
-// Check if editing
+// check if editing
 $edit_mode = false;
 $edit_data = [];
 if (isset($_GET['edit'])) {

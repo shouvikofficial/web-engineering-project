@@ -96,30 +96,40 @@
           <p>Diverse classes designed to keep you motivated and challenged.</p>
         </div>
         <div class="cards-grid">
-          <div class="card">
-            <div class="card-image"></div>
-            <div class="card-content">
-              <h3>Strength & Conditioning</h3>
-              <p>Small group sessions that focus on building strength with proper form and pacing.</p>
-              <a href="#" class="card-link">View Schedule</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image"></div>
-            <div class="card-content">
-              <h3>Functional HIIT</h3>
-              <p>High-energy intervals that mix cardio and bodyweight training for all fitness levels.</p>
-              <a href="#" class="card-link">View Schedule</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image"></div>
-            <div class="card-content">
-              <h3>Mindful Mobility</h3>
-              <p>Gentle stretching and core stability sessions to keep you flexible and energized.</p>
-              <a href="#" class="card-link">View Schedule</a>
-            </div>
-          </div>
+
+        <?php
+        include 'backend/connection.php';
+
+        // get all classes from database
+        $sql = "SELECT * FROM gym_classes";
+        $result = mysqli_query($con, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                
+                $class_name = $row['class_name'];
+                $schedule_day = $row['schedule_day'];
+                $start_time = $row['start_time'];
+                $end_time = $row['end_time'];
+                ?>
+
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3><?php echo $class_name; ?></h3>
+                        <p>Schedule: <?php echo $schedule_day; ?> | <?php echo $start_time; ?> - <?php echo $end_time; ?></p>
+                        <a href="#contact" class="card-link">Book Now</a>
+                    </div>
+                </div>
+
+                <?php
+            }
+        } else {
+            echo "<p>No classes available.</p>";
+        }
+        ?>
+
         </div>
       </div>
     </section>

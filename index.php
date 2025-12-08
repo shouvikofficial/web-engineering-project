@@ -254,21 +254,21 @@
       <div class="container contact-container">
         <div class="contact-info">
           <span class="section-tag">Get in Touch</span>
-          <h2>we are here to help</h2>
-          <p>Have questions? call us, or send a message. We would love to hear from you.</p>
+          <h2>We're Here to Help</h2>
+          <p>Have questions? Visit us, call us, or send a message. We'd love to hear from you.</p>
           <div class="contact-details">
             <div class="contact-item">
               <span class="icon">📍</span>
               <div>
                 <strong>Location</strong>
-                <p>Daffodil Smart City, Birulia 1216</p>
+                <p>123 Fitness Blvd, Dhaka, Bangladesh</p>
               </div>
             </div>
             <div class="contact-item">
               <span class="icon">📞</span>
               <div>
                 <strong>Phone</strong>
-                <p><a href="tel:+88012345678">+88012345678</a></p>
+                <p><a href="tel:+880123456789">+880 1234 56789</a></p>
               </div>
             </div>
             <div class="contact-item">

@@ -131,10 +131,11 @@ if (!$sub) {
         <p><strong>🔑 Status:</strong> <?= ucfirst($sub['status']); ?></p>
     </div>
 
-    <a href="dashboard/index.php" class="btn-main">Go to Dashboard</a>
+    <a href="index.php" class="btn-main">Go to Dashboard</a>
 
     <br>
-    <a href="membership.php" class="btn-outline">View My Membership</a>
+    <a href="profile.php?tab=subscription" class="btn-outline">View My Membership</a>
+
 
 </div>
 

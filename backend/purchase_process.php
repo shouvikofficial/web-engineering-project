@@ -16,20 +16,82 @@ if (!isset($_POST['plan_id'])) {
 
 $plan_id = intval($_POST['plan_id']);
 
-// 1️⃣ Check active subscription
+// 1️⃣ Check if user already has ANY active subscription
 $check = mysqli_query($con, "
     SELECT * FROM subscriptions 
     WHERE user_id = $user_id AND status = 'active'
 ");
 
 if (mysqli_num_rows($check) > 0) {
-    die("❌ You already have an active subscription. Cancel or wait for expiry.");
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Subscription Error</title>
+        <style>
+            body {
+                background: #f5f7fa;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                font-family: Arial, sans-serif;
+                margin: 0;
+            }
+            .error-box {
+                background: #ffffff;
+                padding: 30px;
+                border-radius: 12px;
+                max-width: 450px;
+                width: 90%;
+                text-align: center;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            .error-box h2 {
+                color: #d9534f;
+                margin-bottom: 10px;
+            }
+            .error-box p {
+                color: #333;
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+            .btn {
+                display: inline-block;
+                padding: 10px 20px;
+                background: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+                font-size: 15px;
+            }
+            .btn:hover {
+                background: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="error-box">
+        <h2>⚠ Active Subscription Found</h2>
+        <p>You already have an active membership.<br>
+        Please cancel your current plan before purchasing another one.</p>
+
+        <a href="../profile.php?tab=subscription" class="btn">Go to My Membership</a>
+    </div>
+
+    </body>
+    </html>
+    <?php
+    exit();
 }
 
 // 2️⃣ Get plan details
 $plan = mysqli_fetch_assoc(mysqli_query($con, "
     SELECT * FROM pricing_plans WHERE id = $plan_id
 "));
+
 if (!$plan) {
     die("Invalid plan selected.");
 }

@@ -1909,3 +1909,63 @@ input:checked + .slider:before {
 }
 
 
+/*SCHEDULE */
+
+/* ============================
+   CLASS SCHEDULE SECTION STYLE
+   ============================ */
+
+.schedule-select {
+    width: 260px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    font-size: 0.95rem;
+    cursor: pointer;
+    appearance: none;
+
+    background-image: url("data:image/svg+xml,<svg width='14' height='14' xmlns='http://www.w3.org/2000/svg'><path d='M2 5l5 5 5-5' stroke='black' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+
+.schedule-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 4px rgba(0,102,204,0.3);
+    outline: none;
+}
+
+.schedule-btn {
+    background: var(--accent);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.95rem;
+}
+
+.schedule-btn:hover {
+    background: #005bbb;
+}
+
+.schedule-result {
+    background: var(--light);
+    border: 1px solid var(--border);
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: 18px;
+}
+
+.schedule-result h4 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+.schedule-result p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+}

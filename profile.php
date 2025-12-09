@@ -26,6 +26,38 @@ $user = mysqli_fetch_assoc($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile | DiuGym Center</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+.custom-select {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    font-size: 15px;
+}
+
+.custom-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 4px rgba(13,110,253,0.5);
+}
+
+.btn-schedule {
+    background: #0d6efd;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.btn-schedule:hover {
+    background: #0b5ed7;
+}
+</style>
+
+    
 </head>
 
 <body>
@@ -134,15 +166,71 @@ $user = mysqli_fetch_assoc($result);
             </div>
 
             <!-- OTHER TABS -->
-            <div id="programs" class="tab-box">
-                <h3 class="section-title">Workout Programs</h3>
-                <p>No programs added yet.</p>
-            </div>
+        <div id="schedule" class="tab-box">
+    <h3 class="section-title">My Class Schedule</h3>
 
-            <div id="schedule" class="tab-box">
-                <h3 class="section-title">My Class Schedule</h3>
-                <p>Your schedule will appear here.</p>
-            </div>
+    <?php
+    // If user selected a class
+    $selected_class = "";
+    if (isset($_POST['select_class'])) {
+        $selected_class = $_POST['class_id'];
+    }
+    ?>
+
+    <!-- Select Class Form -->
+    <form method="POST" action="">
+        <label>Select a Class:</label>
+
+        <select name="class_id" class="schedule-select" required>
+            <option value="">-- Choose Class --</option>
+
+            <?php
+            // Show all classes in dropdown
+            $sql = "SELECT * FROM gym_classes ORDER BY class_name";
+            $result = mysqli_query($con, $sql);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                $is_selected = ($selected_class == $row['id']) ? "selected" : "";
+                echo "<option value='".$row['id']."' $is_selected>".$row['class_name']."</option>";
+            }
+            ?>
+        </select>
+
+        <br>
+        <button type="submit" name="select_class" class="schedule-btn">Show Schedule</button>
+    </form>
+
+    <br>
+
+    <!-- Show schedule result -->
+    <?php
+    if (!empty($selected_class)) {
+
+        $s = "SELECT * FROM gym_classes WHERE id='$selected_class'";
+        $r = mysqli_query($con, $s);
+
+        if (mysqli_num_rows($r) > 0) {
+            $row = mysqli_fetch_assoc($r);
+
+            echo "<div class='schedule-result'>";
+            echo "<h4>Selected Class Schedule:</h4>";
+            echo "<p><strong>Class:</strong> ".$row['class_name']."</p>";
+            echo "<p><strong>Day:</strong> ".$row['schedule_day']."</p>";
+            echo "<p><strong>Time:</strong> ".$row['start_time']." - ".$row['end_time']."</p>";
+            echo "<p><strong>Capacity:</strong> ".$row['capacity']."</p>";
+            echo "</div>";
+
+        } else {
+            echo "<p>No schedule found.</p>";
+        }
+
+    } else {
+        echo "<p>Select a class to see the schedule.</p>";
+    }
+    ?>
+
+</div>
+
 
    <div id="subscription" class="tab-box">
     <h3 class="section-title">Subscription Details</h3>

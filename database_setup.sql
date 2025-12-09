@@ -71,7 +71,6 @@ CREATE TABLE IF NOT EXISTS `trainers` (
     `name` VARCHAR(100) NOT NULL,
     `specialty` VARCHAR(100) NOT NULL, -- e.g., 'Weight Loss', 'Body Building'
     `experience` VARCHAR(50),          -- e.g., '5 Years'
-    `image_url` VARCHAR(255) DEFAULT 'default_trainer.png',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
@@ -124,10 +123,14 @@ INSERT INTO `pricing_plans` (`plan_name`, `price`, `features`) VALUES
 ('Premium', 6500.00, 'All Plus features, 1-on-1 coaching, Nutrition plan');
 
 
--- add new to the users table
+-- Add new columns to the users table
+USE `diugym_db`;
 
-ALTER TABLE users 
-ADD address VARCHAR(255) NULL,
-ADD dob DATE NULL,
-ADD gender VARCHAR(20) NULL,
-ADD bio TEXT NULL;
+ALTER TABLE `users`
+ADD `dob` DATE NULL,
+ADD `gender` VARCHAR(20) NULL,
+ADD `bio` TEXT NULL;
+
+-- Add imageurl to trainers table
+ALTER TABLE `trainers`
+ADD `image_url` VARCHAR(255) DEFAULT 'default_trainer.png';

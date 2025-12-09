@@ -7,6 +7,7 @@
             <li><a href="index.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li><a href="members.php"><i class="fas fa-users"></i> Members</a></li>
             <li><a href="trainers.php"><i class="fas fa-dumbbell"></i> Trainers</a></li>
+            <li><a href="classes.php"><i class="fas fa-running"></i> Classes</a></li>
             <li><a href="pricing_plans.php"><i class="fas fa-tags"></i> Plans</a></li>
         </ul>
     </nav>

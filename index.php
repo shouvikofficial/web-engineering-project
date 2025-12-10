@@ -298,21 +298,25 @@
           </div>
         </div>
         <div class="contact-form-wrapper">
-          <form class="contact-form">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input id="name" type="text" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input id="email" type="email" placeholder="you@example.com" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" rows="4" placeholder="How can we help?" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary full-width">Send Message</button>
-          </form>
+         <form class="contact-form" action="backend/save_contact.php" method="POST">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+    </div>
+
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary full-width">Send Message</button>
+</form>
+
         </div>
       </div>
     </section>

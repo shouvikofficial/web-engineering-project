@@ -22,12 +22,12 @@ if (isset($_POST['add_class'])) {
         $run = mysqli_query($con, $sql);
         
         if ($run) {
-            $msg = "<div style='color: green; margin-bottom: 10px;'>Class added successfully!</div>";
+            $msg = "<div class='success-msg'>Class added successfully!</div>";
         } else {
-            $msg = "<div style='color: red; margin-bottom: 10px;'>Error adding class.</div>";
+            $msg = "<div class='error-msg'>Error adding class.</div>";
         }
     } else {
-        $msg = "<div style='color: red; margin-bottom: 10px;'>Please fill in all required fields.</div>";
+        $msg = "<div class='error-msg'>Please fill in all required fields.</div>";
     }
 }
 
@@ -45,9 +45,9 @@ if (isset($_POST['update_class'])) {
     $run = mysqli_query($con, $sql);
 
     if ($run) {
-        $msg = "<div style='color: green; margin-bottom: 10px;'>Class updated successfully!</div>";
+        $msg = "<div class='success-msg'>Class updated successfully!</div>";
     } else {
-        $msg = "<div style='color: red; margin-bottom: 10px;'>Update failed!</div>";
+        $msg = "<div class='error-msg'>Update failed!</div>";
     }
 }
 

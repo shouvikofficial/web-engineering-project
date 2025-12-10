@@ -2,9 +2,7 @@
 CREATE DATABASE IF NOT EXISTS `diugym_db`;
 USE `diugym_db`;
 
--- ==========================================
--- 2. Core Tables (Users & Auth)
--- ==========================================
+
 
 -- Users Table: Stores login info and roles
 CREATE TABLE IF NOT EXISTS `users` (
@@ -20,17 +18,15 @@ CREATE TABLE IF NOT EXISTS `users` (
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
--- ==========================================
--- 3. Membership & Subscriptions System
--- ==========================================
+
 
 -- Pricing Plans: Stores the plan details (from your index.html)
 CREATE TABLE IF NOT EXISTS `pricing_plans` (
     `id` INT NOT NULL AUTO_INCREMENT,
-    `plan_name` VARCHAR(50) NOT NULL, -- e.g., 'Starter', 'Plus', 'Premium'
-    `price` DECIMAL(10, 2) NOT NULL,  -- e.g., 2500.00
-    `duration_days` INT DEFAULT 30,   -- Default 30 days
-    `features` TEXT,                  -- JSON or comma-separated list of features
+    `plan_name` VARCHAR(50) NOT NULL, 
+    `price` DECIMAL(10, 2) NOT NULL,  
+    `duration_days` INT DEFAULT 30,   
+    `features` TEXT,                  
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
@@ -61,25 +57,23 @@ CREATE TABLE IF NOT EXISTS `payments` (
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
--- ==========================================
--- 4. Gym Management (Trainers & Classes)
--- ==========================================
+
 
 -- Trainers: Staff profiles
 CREATE TABLE IF NOT EXISTS `trainers` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(100) NOT NULL,
-    `specialty` VARCHAR(100) NOT NULL, -- e.g., 'Weight Loss', 'Body Building'
-    `experience` VARCHAR(50),          -- e.g., '5 Years'
+    `specialty` VARCHAR(100) NOT NULL, 
+    `experience` VARCHAR(50),          
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
 -- Classes: Available gym classes
 CREATE TABLE IF NOT EXISTS `gym_classes` (
     `id` INT NOT NULL AUTO_INCREMENT,
-    `class_name` VARCHAR(100) NOT NULL, -- e.g., 'Yoga', 'HIIT'
+    `class_name` VARCHAR(100) NOT NULL, 
     `trainer_id` INT,
-    `schedule_day` VARCHAR(20),         -- e.g., 'Monday'
+    `schedule_day` VARCHAR(20),         
     `start_time` TIME,
     `end_time` TIME,
     `capacity` INT DEFAULT 20,
@@ -98,11 +92,9 @@ CREATE TABLE IF NOT EXISTS `class_bookings` (
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
--- ==========================================
--- 5. General Data
--- ==========================================
 
--- Contact Messages: Stores messages from the contact form
+
+
 CREATE TABLE IF NOT EXISTS `messages` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(100) NOT NULL,
@@ -112,11 +104,8 @@ CREATE TABLE IF NOT EXISTS `messages` (
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
--- ==========================================
--- 6. Default Data Seeding
--- ==========================================
 
--- Insert Default Pricing Plans (Matches your index.html)
+
 INSERT INTO `pricing_plans` (`plan_name`, `price`, `features`) VALUES
 ('Starter', 2500.00, 'Gym floor access, 2 classes per week, Monthly check-in'),
 ('Plus', 4000.00, 'Unlimited gym access, Unlimited classes, Workout plan'),

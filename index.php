@@ -1,6 +1,5 @@
-<?php
- session_start();
-?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +82,9 @@
           <a href="#contact" class="btn btn-text">Learn More &rarr;</a>
         </div>
         <div class="about-image">
-          <div class="image-placeholder"></div>
+          <div class="image-placeholder">
+            <img src="https://daffodilvarsity.edu.bd/storage/photos/shares/common/gym-front.jpg" alt="about_img">
+          </div>
         </div>
       </div>
     </section>

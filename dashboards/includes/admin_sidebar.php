@@ -9,6 +9,7 @@
             <li><a href="trainers.php"><i class="fas fa-dumbbell"></i> Trainers</a></li>
             <li><a href="classes.php"><i class="fas fa-running"></i> Classes</a></li>
             <li><a href="pricing_plans.php"><i class="fas fa-tags"></i> Plans</a></li>
+            <li><a href="messages.php"><i class="fas fa-tags"></i> Messages</a></li>
         </ul>
     </nav>
 </aside>

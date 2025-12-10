@@ -13,7 +13,7 @@
     if(!$run){
         echo "Submission failed!";
     } else{
-        header("location: ../index.php");
+        header("location: ../index.php#contact");
     }
 
 ?>

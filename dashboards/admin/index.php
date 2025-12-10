@@ -52,6 +52,8 @@ include '../includes/header.php';
         <a href="members.php" class="btn btn-primary">Manage Members</a>
         <a href="trainers.php" class="btn btn-primary">Manage Trainers</a>
         <a href="pricing_plans.php" class="btn btn-primary">Manage Plans</a>
+        <a href="pricing_plans.php" class="btn btn-primary">Manage Plans</a>
+        <a href="pricing_plans.php" class="btn btn-primary">Manage Messages</a>
     </div>
 </div>
 

@@ -10,7 +10,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 //count member
 $member_query = "SELECT COUNT(*) as total FROM users WHERE role='member'"; //count total num row role with member
 $member_result = mysqli_query($con, $member_query); //count match rows
-$member_count = mysqli_fetch_assoc($member_result)['total'] ?? 0; //
+$member_count = mysqli_fetch_assoc($member_result)['total'] ?? 0;
 
 //count trainers
 $trainer_query = "SELECT COUNT(*) as total FROM trainers";

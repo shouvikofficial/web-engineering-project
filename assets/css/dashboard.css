@@ -216,10 +216,7 @@ th {
 .status-inactive { background: #f8d7da; color: #721c24; }
 
 
-/* ============================================
-   PRICING PAGE — ISOLATED COMPONENT STYLES
-   Only affects pages wrapped with <div class="pricing-page">
-   ============================================ */
+/*PRICING PAGE */
 
 /* EDIT BUTTON */
 .pricing-page .btn-edit {
@@ -313,9 +310,7 @@ th {
 }
 
 
-/* ====================================================
-   EDIT PLAN PAGE — ISOLATED STYLES (NO CONFLICTS)
-   ==================================================== */
+/*EDIT PLAN PAGE */
 
 .edit-plan-page {
     max-width: 700px;

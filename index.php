@@ -100,29 +100,24 @@
         <?php
         include 'backend/connection.php';
 
-        // get all classes from database
-        $sql = "SELECT * FROM gym_classes";
+        // Get all classes from database
+        $sql = "SELECT * FROM gym_classes ORDER BY id";
         $result = mysqli_query($con, $sql);
 
         if (mysqli_num_rows($result) > 0) {
-
             while ($row = mysqli_fetch_assoc($result)) {
-                
-                $class_name = $row['class_name'];
-                $schedule_day = $row['schedule_day'];
-                $start_time = $row['start_time'];
-                $end_time = $row['end_time'];
                 ?>
-
                 <div class="card">
                     <div class="card-image"></div>
                     <div class="card-content">
-                        <h3><?php echo $class_name; ?></h3>
-                        <p>Schedule: <?php echo $schedule_day; ?> | <?php echo $start_time; ?> - <?php echo $end_time; ?></p>
-                        <a href="#contact" class="card-link">Book Now</a>
+                        <h3><?php echo $row['class_name']; ?></h3>
+                        <p>
+                            <?php echo $row['schedule_day']; ?><br>
+                            <?php echo $row['start_time'] . ' - ' . $row['end_time']; ?>
+                        </p>
+                        <a href="#contact" class="card-link">Join Now</a>
                     </div>
                 </div>
-
                 <?php
             }
         } else {
@@ -238,7 +233,7 @@
                 </ul>
 
                 <?php
-                // button style
+
                 if ($name == "Plus") {
                     $button = "btn-primary";
                 } else {

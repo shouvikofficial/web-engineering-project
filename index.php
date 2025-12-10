@@ -100,29 +100,24 @@
         <?php
         include 'backend/connection.php';
 
-        // get all classes from database
-        $sql = "SELECT * FROM gym_classes";
+        // Get all classes from database
+        $sql = "SELECT * FROM gym_classes ORDER BY id";
         $result = mysqli_query($con, $sql);
 
         if (mysqli_num_rows($result) > 0) {
-
             while ($row = mysqli_fetch_assoc($result)) {
-                
-                $class_name = $row['class_name'];
-                $schedule_day = $row['schedule_day'];
-                $start_time = $row['start_time'];
-                $end_time = $row['end_time'];
                 ?>
-
                 <div class="card">
                     <div class="card-image"></div>
                     <div class="card-content">
-                        <h3><?php echo $class_name; ?></h3>
-                        <p>Schedule: <?php echo $schedule_day; ?> | <?php echo $start_time; ?> - <?php echo $end_time; ?></p>
-                        <a href="#contact" class="card-link">Book Now</a>
+                        <h3><?php echo $row['class_name']; ?></h3>
+                        <p>
+                            <?php echo $row['schedule_day']; ?><br>
+                            <?php echo $row['start_time'] . ' - ' . $row['end_time']; ?>
+                        </p>
+                        <a href="#contact" class="card-link">Join Now</a>
                     </div>
                 </div>
-
                 <?php
             }
         } else {
@@ -238,7 +233,7 @@
                 </ul>
 
                 <?php
-                // button style
+
                 if ($name == "Plus") {
                     $button = "btn-primary";
                 } else {
@@ -298,22 +293,23 @@
           </div>
         </div>
         <div class="contact-form-wrapper">
-          <form class="contact-form" action="backend/contact_process.php" method="POST">
+          <form class="contact-form">
             <div class="form-group">
               <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required>
+              <input id="name" type="text" placeholder="Your name" required>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+              <input id="email" type="email" placeholder="you@example.com" required>
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
+              <textarea id="message" rows="4" placeholder="How can we help?" required></textarea>
             </div>
-            <button type="submit" name="submit_contact" class="btn btn-primary full-width">Send Message</button>
+            <button type="submit" class="btn btn-primary full-width">Send Message</button>
           </form>
         </div>
+      </div>
     </section>
   </main>
 

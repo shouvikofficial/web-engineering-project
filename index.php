@@ -100,33 +100,47 @@
         <?php
         include 'backend/connection.php';
 
-        // get all classes from database
-        $sql = "SELECT * FROM gym_classes";
+        //get classes from database
+        $sql = "SELECT gc.*, t.name as trainer_name 
+                FROM gym_classes gc 
+                LEFT JOIN trainers t ON gc.trainer_id = t.id 
+                ORDER BY gc.id ASC";
         $result = mysqli_query($con, $sql);
 
         if (mysqli_num_rows($result) > 0) {
-
             while ($row = mysqli_fetch_assoc($result)) {
-                
                 $class_name = $row['class_name'];
                 $schedule_day = $row['schedule_day'];
                 $start_time = $row['start_time'];
                 $end_time = $row['end_time'];
+                $capacity = $row['capacity'];
+                $trainer_name = $row['trainer_name'] ? $row['trainer_name'] : 'TBA';
+                
+                //format time display
+                $time_display = '';
+                if ($start_time && $end_time) {
+                    $time_display = date('g:i A', strtotime($start_time)) . ' - ' . date('g:i A', strtotime($end_time));
+                }
                 ?>
 
                 <div class="card">
                     <div class="card-image"></div>
                     <div class="card-content">
                         <h3><?php echo $class_name; ?></h3>
-                        <p>Schedule: <?php echo $schedule_day; ?> | <?php echo $start_time; ?> - <?php echo $end_time; ?></p>
-                        <a href="#contact" class="card-link">Book Now</a>
+                        <p>
+                            <?php if ($schedule_day) echo "<strong>$schedule_day</strong><br>"; ?>
+                            <?php if ($time_display) echo "$time_display<br>"; ?>
+                            <?php if ($trainer_name) echo "Trainer: $trainer_name<br>"; ?>
+                            <?php if ($capacity) echo "Capacity: $capacity participants"; ?>
+                        </p>
+                        <a href="#contact" class="card-link">Join Now</a>
                     </div>
                 </div>
 
                 <?php
             }
         } else {
-            echo "<p>No classes available.</p>";
+            echo "<p>No classes available at the moment. Check back soon!</p>";
         }
         ?>
 
@@ -238,7 +252,7 @@
                 </ul>
 
                 <?php
-                // button style
+                
                 if ($name == "Plus") {
                     $button = "btn-primary";
                 } else {
